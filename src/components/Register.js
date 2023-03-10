@@ -141,13 +141,13 @@ function Register() {
               <div class="col-span-6">
                 <p class="text-sm text-gray-500">
                   By creating an account, you agree to our
-                  <a href="#" class="text-gray-700 underline">
+                  <Link to="#" class="text-gray-700 underline">
                     terms and conditions
-                  </a>
+                  </Link>
                   and
-                  <a href="#" class="text-gray-700 underline">
+                  <Link to="#" class="text-gray-700 underline">
                     privacy policy
-                  </a>
+                  </Link>
                   .
                 </p>
               </div>
@@ -160,9 +160,9 @@ function Register() {
                 <p class="mt-4 text-sm text-gray-500 sm:mt-0">
                   Já tem um conta?
                   <Link to="/login">
-                    <a href="#" class="text-gray-700 underline">
+                    <Link to="/login" class="text-gray-700 underline">
                       Log in
-                    </a>
+                    </Link>
                   </Link>
                   .
                 </p>

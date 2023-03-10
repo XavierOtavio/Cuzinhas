@@ -1,123 +1,113 @@
-import React from "react";
+import { useState } from "react";
 import {
   ArrowTrendingUpIcon,
   ArrowTrendingDownIcon,
 } from "@heroicons/react/24/outline";
-import { useState } from "react";
-import EyeIcon from "@heroicons/react/24/outline";
-import PhoneIcon from "@heroicons/react/24/outline";
-import EnvelopeIcon from "@heroicons/react/24/outline";
 
 export default function Dashboard() {
   const [search, setSearch] = useState({ status: "", orderId: "" });
-  const [page, setPage] = useState(1);
 
   let orders = [
     {
-      id: "0001",
-      name: "José",
-      profilePhoto:
-        "https://fd230791b4.cbaul-cdnwnd.com/6573da65277e34d2c8f10c32c9f32cbf/200000001-4c1aa4d753/1246700716628_f.jpg",
-      status: "Canceled",
+      id: "-340,75",
+      name: "Luz",
+      profilePhoto: "https://cdn-icons-png.flaticon.com/512/4021/4021717.png",
+      status: "Despesa",
       phone: "912345678",
       email: "jose@cuzinhas.pt",
     },
     {
-      id: "0002",
-      name: "Maria",
-      profilePhoto:
-        "https://politics.princeton.edu/sites/default/files/styles/square/public/images/AalaAbdelgadir_profile%20resized.jpg?itok=oZMvPNBe",
-      status: "Refunded",
+      id: "-573,56",
+      name: "Aluguer do espaço",
+      profilePhoto: "https://cdn-icons-png.flaticon.com/512/2329/2329140.png",
+      status: "Despesa",
       phone: "912345678",
       email: "jose@cuzinhas.pt",
     },
     {
-      id: "0003",
-      name: "Pedro",
+      id: "1.037,65",
+      name: "Encomenda 0004",
       profilePhoto:
-        "https://media.npr.org/assets/img/2022/11/08/ap22312071681283-0d9c328f69a7c7f15320e8750d6ea447532dff66.jpg",
-      status: "PendingPayment",
+        "https://cdn3.iconfinder.com/data/icons/e-commerce-vol-interactions/80/package-order-ready-checkmark-512.png",
+      status: "Ganho",
       phone: "912345678",
       email: "jose@cuzinhas.pt",
     },
     {
-      id: "0004",
-      name: "Ana",
+      id: "2.598,90",
+      name: "Encomenda 0005",
       profilePhoto:
-        "https://politics.princeton.edu/sites/default/files/styles/square/public/images/Aseel%20Profile%20Pic.jpg?h=96281f56&itok=_XvylDKQ",
-      status: "Assembling",
+        "https://cdn3.iconfinder.com/data/icons/e-commerce-vol-interactions/80/package-order-ready-checkmark-512.png",
+      status: "Ganho",
       phone: "912345678",
       email: "jose@cuzinhas.pt",
     },
     {
-      id: "0005",
-      name: "Joana",
+      id: "7500,00",
+      name: "Patrocínio - TMC Portugal",
       profilePhoto:
-        "https://politics.princeton.edu/sites/default/files/styles/square/public/images/YutianAn0919_0004.jpg?h=6bb51d0e&itok=D-1_EYgw",
-      status: "Scheduling",
+        "https://cdn.freebiesupply.com/logos/large/2x/tmc-13-logo-png-transparent.png",
+      status: "Ganho",
       phone: "912345678",
       email: "jose@cuzinhas.pt",
     },
     {
-      id: "0006",
-      name: "Rui",
-      profilePhoto:
-        "https://politics.princeton.edu/sites/default/files/styles/square/public/images/p-5.jpeg?h=87dbaab7&itok=ub6jAL5Q",
-      status: "Scheduled",
+      id: "-15040,24",
+      name: "Salários",
+      profilePhoto: "https://static.thenounproject.com/png/1725977-200.png",
+      status: "Despesa",
       phone: "912345678",
       email: "jose@cuzinhas.pt",
     },
     {
-      id: "0007",
-      name: "Sofia",
+      id: "50.000,00",
+      name: "Ajuda do Sócrates",
       profilePhoto:
-        "https://politics.princeton.edu/sites/default/files/styles/square/public/images/Elizabeth-Bachman_092721_0003.jpg?h=102c6dce&itok=uL0Sbls1",
-      status: "Canceled",
+        "https://styles.redditmedia.com/t5_3bvj7q/styles/communityIcon_zcukcjwdjhp61.png",
+      status: "Ganho",
       phone: "912345678",
       email: "jose@cuzinhas.pt",
     },
     {
-      id: "0008",
-      name: "Miguel",
-      profilePhoto:
-        "https://politics.princeton.edu/sites/default/files/styles/square/public/images/GordonArsenoff_072721_0014-edit%20%281%29.jpg?h=39a78a6d&itok=hgDXBQsE",
-      status: "Refunded",
+      id: "-774,00",
+      name: "Manutenção Máquinas",
+      profilePhoto: "https://cdn-icons-png.flaticon.com/512/1514/1514411.png",
+      status: "Despesa",
       phone: "912345678",
       email: "jose@cuzinhas.pt",
     },
     {
-      id: "0009",
-      name: "Inês",
-      profilePhoto:
-        "https://politics.princeton.edu/sites/default/files/styles/square/public/images/p-4.jpeg?h=6d5fbd74&itok=UAzUQXdO",
-      status: "PendingPayment",
+      id: "-760,00",
+      name: "Limpeza do espaço",
+      profilePhoto: "https://cdn-icons-png.flaticon.com/512/995/995053.png",
+      status: "Despesa",
       phone: "912345678",
       email: "jose@cuzinhas.pt",
     },
     {
-      id: "0010",
-      name: "Rita",
+      id: "3556,79",
+      name: "Encomenda 0013",
       profilePhoto:
-        "https://politics.princeton.edu/sites/default/files/styles/square/public/images/Al-Shami.jpeg?h=227444a7&itok=hmE_Lctk",
-      status: "Assembling",
+        "https://cdn3.iconfinder.com/data/icons/e-commerce-vol-interactions/80/package-order-ready-checkmark-512.png",
+      status: "Ganho",
       phone: "912345678",
       email: "jose@cuzinhas.pt",
     },
     {
-      id: "0011",
-      name: "Luís",
+      id: "2750,50",
+      name: "Encomenda 0014",
       profilePhoto:
-        "https://politics.princeton.edu/sites/default/files/styles/square/public/images/Alkhawaldeh_Headshot.jpg?h=6a43611b&itok=RFd3qC78",
-      status: "Scheduling",
+        "https://cdn3.iconfinder.com/data/icons/e-commerce-vol-interactions/80/package-order-ready-checkmark-512.png",
+      status: "Ganho",
       phone: "912345678",
       email: "jose@cuzinhas.pt",
     },
     {
-      id: "0012",
-      name: "João",
+      id: "5600,65",
+      name: "Encomenda 0015",
       profilePhoto:
-        "https://politics.princeton.edu/sites/default/files/styles/square/public/images/Greg%20Amusu%20Department%20Photo%20%28002%29%202.jpeg?itok=lqtdmKJB",
-      status: "Scheduled",
+        "https://cdn3.iconfinder.com/data/icons/e-commerce-vol-interactions/80/package-order-ready-checkmark-512.png",
+      status: "Ganho",
       phone: "912345678",
       email: "jose@cuzinhas.pt",
     },
@@ -125,53 +115,19 @@ export default function Dashboard() {
 
   const statusBadge = (status) => {
     switch (status) {
-      case "Canceled":
+      case "Despesa":
         return (
-          <span class="bg-red-100 text-red-800 text-xs font-medium mr-2 px-2.5 py-0.5 rounded">
-            Cancelado
-          </span>
+          <div class="inline-flex gap-2 self-end rounded bg-red-100 p-1 text-red-600">
+            <ArrowTrendingDownIcon className="h-4 w-4" />
+            <span class="text-xs font-medium"> Despesa </span>
+          </div>
         );
-      case "Refunded":
+      case "Ganho":
         return (
-          <span class="bg-pink-100 text-pink-800 text-xs font-medium mr-2 px-2.5 py-0.5 rounded">
-            Reembolsado
-          </span>
-        );
-      case "InProduction":
-        return (
-          <span class="bg-amber-100 text-amber-800 text-xs font-medium mr-2 px-2.5 py-0.5 rounded">
-            Em produção
-          </span>
-        );
-      case "PendingPayment":
-        return (
-          <span class="bg-yellow-100 text-yellow-800 text-xs font-medium mr-2 px-2.5 py-0.5 rounded">
-            À espera de pagamento
-          </span>
-        );
-      case "Assembling":
-        return (
-          <span class="bg-blue-100 text-blue-800 text-xs font-medium mr-2 px-2.5 py-0.5 rounded">
-            Em instalação
-          </span>
-        );
-      case "Scheduling":
-        return (
-          <span className="bg-indigo-100 text-indigo-800 text-xs font-medium mr-2 px-2.5 py-0.5 rounded">
-            A agendar
-          </span>
-        );
-      case "Scheduled":
-        return (
-          <span class="bg-purple-100 text-purple-800 text-xs font-medium mr-2 px-2.5 py-0.5 rounded">
-            Agendado
-          </span>
-        );
-      case "Done":
-        return (
-          <span class="bg-green-100 text-green-800 text-xs font-medium mr-2 px-2.5 py-0.5 rounded">
-            Concluído
-          </span>
+          <div class="inline-flex gap-2 self-end rounded bg-green-100 p-1 text-green-600">
+            <ArrowTrendingUpIcon className="h-4 w-4" />
+            <span class="text-xs font-medium"> Ganho </span>
+          </div>
         );
       default:
         return (
@@ -191,24 +147,21 @@ export default function Dashboard() {
       if (order.status === search.status && order.id.includes(search.orderId))
         return order;
     }
+    return null;
   });
 
-  const calculateRange = (data) => {
-    const range = [];
-    const num = Math.ceil(data.length / 8);
-    for (let i = 1; i <= num; i++) {
-      range.push(i);
-    }
-    return range;
-  };
-
-  const sliceData = (data, page) => {
-    return data.slice((page - 1) * 8, page * 8);
-  };
   return (
     <div className="absolute inset-0 mx-32 my-16 grid grid-cols-12 grid-rows-6 gap-2">
       <div className="row-start-1 row-end-2 col-start-1 col-end-5">
-        <button class="flex flex-col gap-4 rounded-lg border border-gray-100 bg-white w-full h-full p-4">
+        <button
+          // class="flex flex-col gap-4 rounded-lg border border-gray-100 bg-white w-full h-full p-4 hover:shadow-lg hover:border-stone-900 focus:border-stone-900 focus:shadow-lg"
+          className={` ${
+            search.status === ""
+              ? "flex flex-col gap-4 rounded-lg border bg-white w-full h-full p-4 hover:shadow-lg hover:border-stone-900 border-stone-900 shadow-lg"
+              : "flex flex-col gap-4 rounded-lg border border-gray-100 bg-white w-full h-full p-4 hover:shadow-lg hover:border-stone-900 focus:border-stone-900 focus:shadow-lg"
+          }`}
+          onClick={(e) => setSearch((search) => ({ ...search, status: "" }))}
+        >
           <div class="inline-flex gap-2 self-end rounded bg-green-100 p-1 text-green-600">
             <ArrowTrendingUpIcon className="h-4 w-4" />
             <span class="text-xs font-medium"> 67.81% </span>
@@ -224,7 +177,12 @@ export default function Dashboard() {
         </button>
       </div>
       <div className="row-start-2 row-end-3 col-start-1 col-end-5">
-        <button class="flex flex-col gap-4 rounded-lg border border-gray-100 bg-white w-full h-full p-4">
+        <button
+          class="flex flex-col gap-4 rounded-lg border border-gray-100 bg-white w-full h-full p-4 hover:shadow-lg hover:border-stone-900 focus:border-stone-900 focus:shadow-lg"
+          onClick={(e) =>
+            setSearch((search) => ({ ...search, status: "Ganho" }))
+          }
+        >
           <div class="inline-flex gap-2 self-end rounded bg-green-100 p-1 text-green-600">
             <ArrowTrendingUpIcon className="h-4 w-4" />
             <span class="text-xs font-medium"> 67.81% </span>
@@ -243,7 +201,12 @@ export default function Dashboard() {
         </button>
       </div>
       <div className="row-start-3 row-end-4 col-start-1 col-end-5">
-        <button class="flex flex-col gap-4 rounded-lg border border-gray-100 bg-white w-full h-full p-4">
+        <button
+          class="flex flex-col gap-4 rounded-lg border border-gray-100 bg-white w-full h-full p-4 hover:shadow-lg hover:border-stone-900 focus:border-stone-900 focus:shadow-lg"
+          onClick={(e) =>
+            setSearch((search) => ({ ...search, status: "Despesa" }))
+          }
+        >
           <div class="inline-flex gap-2 self-end rounded bg-red-100 p-1 text-red-600">
             <ArrowTrendingDownIcon className="h-4 w-4" />
             <span class="text-xs font-medium"> 67.81% </span>
@@ -261,39 +224,20 @@ export default function Dashboard() {
           </div>
         </button>
       </div>
-      <div className="row-start-4 row-end-7 col-start-1 col-end-5 mt-6 text-center">
+      <div className="row-start-4 row-end-7 col-start-1 col-end-5 m-6 text-center">
         <p className="text-2xl font-medium">Performance de Vendas</p>
-        <img src="https://www.mathworks.com/help/examples/graphics/win64/BarhSingleDataSetExample_01.png" />
+        <img
+          className="relative bg-contain"
+          alt="graphic"
+          src="https://i.ibb.co/QcxN74x/piechart.jpg"
+        />
       </div>
       <div className="row-start-1 row-end-7 col-start-6 col-end-13 overflow-y-scroll overscroll-y-auto">
         <div className=" inset-x-32 inset-y-16 overflow-x-auto shadow-md sm:rounded-lg bg-stone-200">
           <div className="flex align-baseline justify-between pb-4">
             <div className="relative mx-6 my-3 flex-[1]">
-              <label htmlFor="statusCheck" className="font-semibold text-sm ">
-                Filtrar por estado:
-              </label>
-              <select
-                name="statusCheck"
-                id="statusCheck"
-                onChange={(e) =>
-                  setSearch((search) => ({ ...search, status: e.target.value }))
-                }
-                className="peer block w-full appearance-none border-0 border-b-2 border-gray-300 bg-transparent px-0 py-2.5 text-sm text-gray-900 focus:border-red-600 focus:outline-none focus:ring-0 "
-              >
-                <option value={""}>Todos</option>
-                <option value={"Canceled"}>Cancelado</option>
-                <option value={"Refunded"}>Reembolsado</option>
-                <option value={"PendingPayment"}>À espera de pagamento</option>
-                <option value={"InProduction"}>Em produção</option>
-                <option value={"Scheduling"}>À espera de agendamento</option>
-                <option value={"Scheduled"}>Agendado</option>
-                <option value={"Assembling"}>Em instalação</option>
-                <option value={"Done"}>Concluido</option>
-              </select>
-            </div>
-            <div className="relative mx-6 my-3 flex-[1]">
               <label htmlFor="orderIdCheck" className="font-semibold text-sm ">
-                Filtrar por encomenda:
+                Filtrar por descrição:
               </label>
               <input
                 name="orderIdCheck"
@@ -313,30 +257,24 @@ export default function Dashboard() {
             <thead className="text-xs text-stone-900 uppercase ">
               <tr>
                 <th className="px-6 py-3" scope="col">
-                  Encomenda
+                  Descrição
                 </th>
                 <th className="px-6 py-3" scope="col">
-                  Cliente
+                  Valor
                 </th>
                 <th className="px-6 py-3" scope="col">
-                  Estado
+                  Tipo de Transação
                 </th>
               </tr>
             </thead>
             <tbody className="bg-stone-50">
               {filteredOrders.map((order) => (
                 <tr key={order.id} className="bg-stone-100 border-b">
-                  <th
-                    scope="row"
-                    className="px-6 py-3 whitespace-nowrap cursor-pointer"
-                  >
-                    {order.id}
-                  </th>
                   <td className="px-6 py-3 whitespace-nowrap cursor-pointer">
                     <div className="flex items-center">
                       <div className="flex-shrink-0 h-10 w-10">
                         <img
-                          className="h-10 w-10 rounded-full"
+                          className="h-10 w-10 aspect-square"
                           src={order.profilePhoto}
                           alt=""
                         />
@@ -346,6 +284,12 @@ export default function Dashboard() {
                       </div>
                     </div>
                   </td>
+                  <th
+                    scope="row"
+                    className="px-6 py-3 whitespace-nowrap cursor-pointer "
+                  >
+                    {order.id}€
+                  </th>
                   <td className="px-6 py-3 whitespace-nowrap">
                     {statusBadge(order.status)}
                   </td>

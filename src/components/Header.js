@@ -1,8 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import Logotipo from "./Logotipo";
+import { useLocation } from "react-router-dom";
 
 function Header() {
+  const location = useLocation();
   return (
     <div className="backdrop-blur-lg h-24 justify-center items-center flex bg-stone-50/50">
       <div className="w-auto h-full flex align-baseline justify-start m-3 p-2 text-black">
@@ -10,8 +12,24 @@ function Header() {
       </div>
       <div className="w-full flex align-baseline justify-end ml-2 mr-3">
         <Link to="/">
-          <button class="block border border-red-600  px-10 py-3 text-red-600 ml-2 font-medium hover:border-red-600 hover:bg-red-600 hover:text-white">
+          <button
+            // class="block border border-red-600  px-10 py-3 text-red-600 ml-2 font-medium hover:border-red-600 hover:bg-red-600 hover:text-white"
+            className={`${
+              location.pathname === "/" ? "bg-red-600 text-white" : ""
+            } block border border-red-600  px-10 py-3 text-red-600 ml-2 font-medium hover:border-red-600 hover:bg-red-600 hover:text-white`}
+          >
             Home
+          </button>
+        </Link>
+        <Link to="/productsList">
+          <button
+            className={`${
+              location.pathname === "/productsList"
+                ? "bg-red-600 text-white"
+                : ""
+            } block border border-red-600  px-10 py-3 text-red-600 ml-2 font-medium hover:border-red-600 hover:bg-red-600 hover:text-white`}
+          >
+            Catálogo
           </button>
         </Link>
         <Link to="/dashboard">

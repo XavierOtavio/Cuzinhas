@@ -10,31 +10,31 @@ function Home() {
         <div class="relative mx-auto max-w-screen-xl px-4 py-32 sm:px-6 lg:flex lg:h-screen lg:items-center lg:px-8">
           <div class="max-w-xl text-center sm:text-left">
             <h1 class="text-3xl font-extrabold sm:text-5xl">
-              Let us find your
+              Vamos encontrar
               <strong class="block font-extrabold text-red-600">
-                Forever Home.
+                a tua cozinha de sonho
               </strong>
             </h1>
 
             <p class="mt-4 max-w-lg sm:text-xl sm:leading-relaxed">
-              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nesciunt
-              illo tenetur fuga ducimus numquam ea!
+              Cozinha e moveis feito à medida por encomenda para corresponder às
+              suas necessidades
             </p>
 
             <div class="mt-8 flex flex-wrap gap-4 text-center">
-              <a
-                href="#"
+              <Link
+                to="/#"
                 class="block w-full rounded bg-red-600 px-12 py-3 text-sm font-medium text-white shadow hover:bg-red-500 focus:outline-none focus:ring active:bg-rose-500 sm:w-auto"
               >
-                Get Started
-              </a>
+                Vamos começar
+              </Link>
 
-              <a
-                href="#"
+              <Link
+                to="#"
                 class="block w-full rounded bg-white px-12 py-3 text-sm font-medium text-red-600 shadow hover:text-red-500 focus:outline-none focus:ring active:text-rose-500 sm:w-auto"
               >
-                Learn More
-              </a>
+                Saber Mais
+              </Link>
             </div>
           </div>
         </div>
@@ -44,20 +44,16 @@ function Home() {
           <div class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
             <div class="max-w-3xl mx-auto text-center">
               <h2 class="text-base font-semibold text-rose-600 tracking-wide uppercase">
-                Trusted by over 26,000 homes
+                Marca de confiança em maisde 26,000 casas
               </h2>
               <p class="mt-2 text-3xl font-extrabold text-gray-900 sm:text-4xl">
-                A better way to spend money
-              </p>
-              <p class="mt-5 max-w-prose mx-auto text-xl text-gray-500">
-                Lorem ipsum dolor sit amet consect adipisicing elit. Possimus
-                magnam voluptatum cupiditate veritatis in accusamus quisquam.
+                A melhor maneira de investir na sua cozinha
               </p>
             </div>
           </div>
         </div>
       </div>
-      <section className="bg-stone-300">
+      <section className="bg-stone-300" id="#">
         <div class="max-w-screen-xl px-4 py-8 mx-auto sm:py-12 sm:px-6 lg:px-8">
           <div class="grid grid-cols-1 gap-4 lg:grid-cols-3 lg:items-stretch">
             <div class="grid p-6 bg-gray-100 rounded place-content-center sm:p-8">
@@ -68,15 +64,15 @@ function Home() {
                   </h2>
 
                   <p class="mt-4 text-gray-500">
-                    Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                    Quas rerum quam amet provident nulla error!
+                    Encontre uma grande variadade de designs e materiais para ir
+                    de encontro às suas espectativas
                   </p>
                 </header>
                 <Link
-                  to="/Products"
+                  to="productsList"
                   class="inline-block px-12 py-3 mt-8 text-sm font-medium text-white transition bg-gray-900 border border-gray-900 rounded hover:shadow focus:outline-none focus:ring"
                 >
-                  <h1>Shop All</h1>
+                  <h1>Veja aqi!</h1>
                 </Link>
               </div>
             </div>
@@ -84,7 +80,7 @@ function Home() {
             <div class="lg:col-span-2 lg:py-8">
               <ul class="grid grid-cols-2 gap-4">
                 <li>
-                  <a href="#" class="block group">
+                  <Link to="#" class="block group">
                     <img
                       src="https://www.gower-furniture.co.uk/wp-content/uploads/2021/05/Capri-Dark-Grey.jpg"
                       alt=""
@@ -96,11 +92,11 @@ function Home() {
                         Cozinha Deluxe
                       </h3>
                     </div>
-                  </a>
+                  </Link>
                 </li>
 
                 <li>
-                  <a href="#" class="block group">
+                  <Link to="#" class="block group">
                     <img
                       src="https://www.eshoper.in/wp-content/uploads/2021/12/best-kitchen-furniture-latest-design-low-price-furnitures-store-panvel-kamothe-navi-mumbai.jpg"
                       alt=""
@@ -112,7 +108,7 @@ function Home() {
                         Cozinha Cerâmica
                       </h3>
                     </div>
-                  </a>
+                  </Link>
                 </li>
               </ul>
             </div>
@@ -123,13 +119,11 @@ function Home() {
         <div class="mx-auto max-w-screen-xl px-4 py-12 sm:px-6 md:py-16 lg:px-8">
           <div class="mx-auto max-w-3xl text-center">
             <h2 class="text-3xl font-bold text-gray-900 sm:text-4xl">
-              Trusted Businesses
+              Negocios de confiança
             </h2>
 
             <p class="mt-4 text-gray-500 sm:text-xl">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione
-              dolores laborum labore provident impedit esse recusandae facere
-              libero harum sequi.
+              Qualidade comprovada e testada pelos nossos técnicos
             </p>
           </div>
 
@@ -137,31 +131,31 @@ function Home() {
             <dl class="grid grid-cols-1 gap-4 sm:grid-cols-3">
               <div class="flex flex-col rounded-lg border border-gray-100 px-4 py-8 text-center">
                 <dt class="order-last text-lg font-medium text-gray-500">
-                  Total Sales
+                  Total Vendas
                 </dt>
 
                 <dd class="text-4xl font-extrabold text-red-600 md:text-5xl">
-                  $4.8m
+                  4.8M€
                 </dd>
               </div>
 
               <div class="flex flex-col rounded-lg border border-gray-100 px-4 py-8 text-center">
                 <dt class="order-last text-lg font-medium text-gray-500">
-                  Official Addons
+                  Casas
                 </dt>
 
                 <dd class="text-4xl font-extrabold text-red-600 md:text-5xl">
-                  24
+                  26000
                 </dd>
               </div>
 
               <div class="flex flex-col rounded-lg border border-gray-100 px-4 py-8 text-center">
                 <dt class="order-last text-lg font-medium text-gray-500">
-                  Total Addons
+                  moveis
                 </dt>
 
                 <dd class="text-4xl font-extrabold text-red-600 md:text-5xl">
-                  86
+                  122000
                 </dd>
               </div>
             </dl>

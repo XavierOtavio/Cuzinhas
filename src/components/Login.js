@@ -71,9 +71,9 @@ function Login() {
                 <p class="mt-4 text-sm text-gray-500 sm:mt-0">
                   Ainda não tem conta?
                   <Link to="/register">
-                    <a href="#" class="text-gray-700 underline">
+                    <Link to="/register" class="text-gray-700 underline">
                       Criar Conta
-                    </a>
+                    </Link>
                   </Link>
                   .
                 </p>

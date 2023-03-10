@@ -4,7 +4,7 @@ import {
   EnvelopeIcon,
   CalendarDaysIcon,
 } from "@heroicons/react/24/outline";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
 export default function Orders() {
   const [search, setSearch] = useState({ role: "", name: "" });
@@ -195,6 +195,7 @@ export default function Orders() {
       if (order.role === search.role && order.name.includes(search.name))
         return order;
     }
+    return null;
   });
 
   const calculateRange = (data) => {
@@ -298,12 +299,8 @@ export default function Orders() {
               </td>
               <td className="px-6 py-3">
                 <div className="inline-grid grid-cols-4 gap-4">
-                  <a>
-                    <EyeIcon className="text-indigo-600 hover:text-indigo-900 cursor-pointer w-6" />
-                  </a>
-                  <a>
-                    <CalendarDaysIcon className="text-indigo-600 hover:text-indigo-900 cursor-pointer w-6" />
-                  </a>
+                  <EyeIcon className="text-indigo-600 hover:text-indigo-900 cursor-pointer w-6" />
+                  <CalendarDaysIcon className="text-indigo-600 hover:text-indigo-900 cursor-pointer w-6" />
                   <a href={`tel:${order.phone}`}>
                     <PhoneIcon className="text-indigo-600 hover:text-indigo-900 cursor-pointer w-6" />
                   </a>
@@ -317,42 +314,38 @@ export default function Orders() {
           ))}
         </tbody>
         {calculateRange(filteredOrders).length > 1 && (
-          <tfoot>
-            <tr className="">
-              <td colSpan={4}>
-                <div className="relative flex justify-center items-center">
-                  <div className="flex items-center bottom-0 fixed bg-stone-200 w-full justify-center ">
-                    <button
-                      className="px-4 py-2 rounded-l-md border border-gray-300 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50"
-                      onClick={() => setPage(page - 1)}
-                      disabled={page === 1}
-                    >
-                      Anterior
-                    </button>
-                    {calculateRange(filteredOrders).map((num) => (
-                      <button
-                        key={num}
-                        className={`${
-                          page === num
-                            ? "bg-indigo-500 text-white"
-                            : "bg-white text-gray-700"
-                        } px-4 py-2 border border-gray-300 text-sm font-medium hover:bg-gray-50`}
-                        onClick={() => setPage(num)}
-                      >
-                        {num}
-                      </button>
-                    ))}
-                    <button
-                      className="px-4 py-2 rounded-r-md border border-gray-300 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50"
-                      onClick={() => setPage(page + 1)}
-                      disabled={page === calculateRange(filteredOrders).length}
-                    >
-                      Seguinte
-                    </button>
-                  </div>
-                </div>
-              </td>
-            </tr>
+          <tfoot className="inline-flex w-full bottom-0 absolute items-center justify-center mb-4 bg-stone-200">
+            <td>
+              <tr>
+                <button
+                  className="px-4 py-2 rounded-l-md border border-gray-300 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50"
+                  onClick={() => setPage(page - 1)}
+                  disabled={page === 1}
+                >
+                  Anterior
+                </button>
+                {calculateRange(filteredOrders).map((num) => (
+                  <button
+                    key={num}
+                    className={`${
+                      page === num
+                        ? "bg-indigo-500 text-white"
+                        : "bg-white text-gray-700"
+                    } px-4 py-2 border border-gray-300 text-sm font-medium hover:bg-gray-50`}
+                    onClick={() => setPage(num)}
+                  >
+                    {num}
+                  </button>
+                ))}
+                <button
+                  className="px-4 py-2 rounded-r-md border border-gray-300 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50"
+                  onClick={() => setPage(page + 1)}
+                  disabled={page === calculateRange(filteredOrders).length}
+                >
+                  Seguinte
+                </button>
+              </tr>
+            </td>
           </tfoot>
         )}
       </table>

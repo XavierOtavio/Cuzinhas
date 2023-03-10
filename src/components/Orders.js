@@ -1,5 +1,5 @@
 import { EyeIcon, PhoneIcon, EnvelopeIcon } from "@heroicons/react/24/outline";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
 export default function Orders() {
   const [search, setSearch] = useState({ status: "", orderId: "" });
@@ -184,6 +184,7 @@ export default function Orders() {
       if (order.status === search.status && order.id.includes(search.orderId))
         return order;
     }
+    return null;
   });
 
   const calculateRange = (data) => {
