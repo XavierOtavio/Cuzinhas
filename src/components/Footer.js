@@ -1,6 +1,6 @@
 function Footer() {
   return (
-    <section class="bg-stone-900">
+    <section class="bg-stone-900" id="catalogo">
       <div class="p-8 md:p-12 lg:px-16 lg:py-24">
         <div class="mx-auto max-w-lg text-center">
           <h2 class="text-2xl font-bold text-stone-50 md:text-3xl">
@@ -19,7 +19,7 @@ function Footer() {
 
               <input
                 type="email"
-                placeholder="Email address"
+                placeholder="Introduz o teu email"
                 class="w-full rounded-md border-gray-200 bg-white p-3 text-gray-700 shadow-sm transition focus:border-white focus:outline-none focus:ring focus:ring-yellow-400"
               />
             </div>

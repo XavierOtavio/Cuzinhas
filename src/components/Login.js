@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { XMarkIcon } from "@heroicons/react/24/outline";
 
 function Login() {
   return (
@@ -17,6 +18,11 @@ function Login() {
           aria-label="Main"
           class="flex items-center justify-center px-8 py-8 sm:px-12 lg:col-span-7 lg:py-12 lg:px-16 xl:col-span-6"
         >
+          <Link to="/">
+            <button>
+              <XMarkIcon className="absolute top-12 left-12 h-8 w-8 text-stone-900" />
+            </button>
+          </Link>
           <div class="max-w-xl lg:max-w-3xl">
             <a class="block text-blue-600" href="/">
               <span class="sr-only">Home</span>
@@ -34,7 +40,7 @@ function Login() {
               <div class="col-span-6">
                 <label
                   for="Email"
-                  class="block text-sm font-medium text-gray-700 text-left"
+                  class="block text-left text-sm font-medium text-gray-700"
                 >
                   Email
                 </label>
@@ -43,14 +49,14 @@ function Login() {
                   type="email"
                   id="Email"
                   name="email"
-                  class="mt-1 w-full h-12 border rounded-md border-gray-200 bg-white text-sm text-gray-700 shadow-sm"
+                  class="mt-1 h-12 w-full rounded-md border border-gray-200 bg-white text-sm text-gray-700 shadow-sm"
                 />
               </div>
 
               <div class="col-span-6 sm:col-span-6">
                 <label
                   for="Password"
-                  class="block text-sm font-medium text-gray-700 text-left"
+                  class="block text-left text-sm font-medium text-gray-700"
                 >
                   Password
                 </label>
@@ -59,12 +65,12 @@ function Login() {
                   type="password"
                   id="Password"
                   name="password"
-                  class="mt-1 w-full h-12 border rounded-md border-gray-200 bg-white text-sm text-gray-700 shadow-sm"
+                  class="mt-1 h-12 w-full rounded-md border border-gray-200 bg-white text-sm text-gray-700 shadow-sm"
                 />
               </div>
 
               <div class="col-span-6 sm:flex sm:items-center sm:gap-4">
-                <button class="block border hover:border-red-600 hover:bg-white px-10 py-3 hover:text-red-600 ml-2 font-medium border-red-600 bg-red-600 text-white">
+                <button class="ml-2 block border border-red-600 bg-red-600 px-10 py-3 font-medium text-white hover:border-red-600 hover:bg-white hover:text-red-600">
                   Login
                 </button>
 

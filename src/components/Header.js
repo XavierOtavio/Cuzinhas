@@ -1,15 +1,17 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import Logotipo from "./Logotipo";
-import { useLocation } from "react-router-dom";
 
 function Header() {
   const location = useLocation();
   return (
     <div className="backdrop-blur-lg h-24 justify-center items-center flex bg-stone-50/50">
-      <div className="w-auto h-full flex align-baseline justify-start m-3 p-2 text-black">
+      <Link
+        to="/"
+        className="w-auto h-full flex align-baseline justify-start m-3 p-2 text-black"
+      >
         <Logotipo className="fill-black" />
-      </div>
+      </Link>
       <div className="w-full flex align-baseline justify-end ml-2 mr-3">
         <Link to="/">
           <button

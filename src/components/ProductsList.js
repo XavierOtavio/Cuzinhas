@@ -7,7 +7,7 @@ export default function ProductsList() {
       <div class="mx-auto max-w-screen-xl px-4 py-8 sm:px-6 sm:py-12 lg:px-8">
         <header>
           <h2 class="text-xl font-bold text-gray-900 sm:text-3xl">
-            Product Collection
+            Coleção de produtos
           </h2>
 
           <p class="mt-4 max-w-md text-gray-500">
@@ -367,7 +367,7 @@ export default function ProductsList() {
 
                     <div class="relative bg-white pt-3">
                       <h3 class="text-xs text-gray-700 group-hover:underline group-hover:underline-offset-4">
-                        Cosinha completa em Pinho
+                        Cozinha modelo
                       </h3>
 
                       <p class="mt-2">

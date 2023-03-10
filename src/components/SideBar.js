@@ -11,7 +11,7 @@ import {
 export default function SideBar() {
   const location = useLocation();
   return (
-    <div className="absolute inset-y-0 left-0 z-10 w-16 shadow-sm bg-stone-50">
+    <div className="absolute inset-y-0 left-0 z-10 w-16 bg-stone-50 shadow-sm">
       <div>
         <div className="inline-flex h-16 w-16 items-center justify-center">
           <Link
@@ -20,10 +20,10 @@ export default function SideBar() {
           >
             <img
               alt="user"
-              className="rounded-lg h-10 w-10"
+              className="h-10 w-10 rounded-lg"
               src="https://cdn.discordapp.com/attachments/1082425024104894666/1082799435727253584/xSVMV6xD9Cf7K56wjeEF--1--2htnr.jpg"
             />
-            <span className="absolute left-full text-left whitespace-nowrap top-1/2 ml-4 -translate-y-1/2 rounded bg-stone-900 px-2 py-1.5 text-xs font-medium text-stone-50 opacity-0 group-hover:opacity-100">
+            <span className="absolute left-full top-1/2 ml-4 -translate-y-1/2 whitespace-nowrap rounded bg-stone-900 px-2 py-1.5 text-left text-xs font-medium text-stone-50 opacity-0 group-hover:opacity-100">
               Perfil <p className="font-light">Xavier Otávio</p>
             </span>
           </Link>
@@ -85,12 +85,12 @@ export default function SideBar() {
                 }`}
               >
                 <CubeIcon className="h-6 w-6" />
-                <span className="absolute left-full top-1/2 ml-4 -translate-y-1/2 rounded bg-stone-900 px-2 py-1.5 text-xs font-medium text-stone-50 opacity-0 group-hover:opacity-100">
+                <span className="absolute left-full top-1/2 ml-4 -translate-y-1/2 whitespace-nowrap rounded bg-stone-900 px-2 py-1.5 text-xs font-medium text-stone-50 opacity-0 group-hover:opacity-100">
                   Matérias-primas
                 </span>
               </Link>
             </div>
-            <div className="py-4 bottom-0 absolute">
+            <div className="absolute bottom-0 py-4">
               <Link
                 to="/"
                 className="group relative flex  justify-center rounded bg-stone-50 px-2 py-1.5 text-stone-900"

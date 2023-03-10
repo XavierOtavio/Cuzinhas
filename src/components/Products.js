@@ -2,7 +2,7 @@ import React from "react";
 
 export default function Products() {
   return (
-    <div>
+    <div className="pt-24">
       <section>
         <div class="relative mx-auto max-w-screen-xl px-4 py-8">
           <div class="grid grid-cols-1 items-start gap-8 md:grid-cols-2">
@@ -48,7 +48,7 @@ export default function Products() {
               <div class="mt-8 flex justify-between">
                 <div class="max-w-[35ch] space-y-2">
                   <h1 class="text-xl font-bold sm:text-2xl">
-                    Cozinha completa em pinho nordico
+                    Cozinha modelo personalizavel
                   </h1>
 
                   <p class="text-sm"></p>
@@ -107,15 +107,10 @@ export default function Products() {
               <div class="mt-4">
                 <div class="prose max-w-none">
                   <p>
-                    Esta cozinha em pinho nórdico é uma peça única de mobiliário
-                    que irá adicionar beleza e funcionalidade à sua casa. O
-                    pinho nórdico é conhecido por sua durabilidade e elegância,
-                    além de proporcionar um ambiente acolhedor e convidativo. Os
-                    armários e prateleiras em pinho nórdico são cuidadosamente
-                    trabalhados, criando uma textura suave e uniforme. O
-                    acabamento natural do pinho nórdico permite que as veias da
-                    madeira sejam visíveis, adicionando um charme rústico e
-                    natural à sua cozinha.
+                    Aqui podera pesonalizar a sua cozinha atravez de uma cozinha
+                    modelo! Desta maneira consegue adaptar os moveis ao seu
+                    espaço e escolher como vai ficar a sua disposição para
+                    melhor satisfazer as suas necessidades e as da sua casa.{" "}
                   </p>
                 </div>
 
@@ -126,7 +121,52 @@ export default function Products() {
 
               <form class="mt-8">
                 <fieldset>
-                  <legend class="mb-1 text-sm font-medium">color_cb</legend>
+                  <legend class="mb-1 text-sm font-medium">Medidas</legend>
+
+                  <div class="flex flex-wrap gap-1">
+                    <label for="color_tt" class="cursor-pointer">
+                      <input
+                        type="radio"
+                        name="color"
+                        id="color_tt"
+                        class="peer sr-only"
+                      />
+
+                      <imput
+                        placeholder="Comprimento/m"
+                        class="group inline-block rounded-full border px-3 py-1 text-xs font-medium peer-checked:bg-black peer-checked:text-white"
+                      ></imput>
+                    </label>
+
+                    <label for="color_fr" class="cursor-pointer">
+                      <input
+                        type="radio"
+                        name="color"
+                        id="color_fr"
+                        class="peer sr-only"
+                      />
+
+                      <span class="group inline-block rounded-full border px-3 py-1 text-xs font-medium peer-checked:bg-black peer-checked:text-white">
+                        Clara
+                      </span>
+                    </label>
+
+                    <label for="color_cb" class="cursor-pointer">
+                      <input
+                        type="radio"
+                        name="color"
+                        id="color_cb"
+                        class="peer sr-only"
+                      />
+
+                      <span class="group inline-block rounded-full border px-3 py-1 text-xs font-medium peer-checked:bg-black peer-checked:text-white">
+                        Branco
+                      </span>
+                    </label>
+                  </div>
+                </fieldset>
+                <fieldset>
+                  <legend class="mb-1 text-sm font-medium">Cor</legend>
 
                   <div class="flex flex-wrap gap-1">
                     <label for="color_tt" class="cursor-pointer">
@@ -241,7 +281,7 @@ export default function Products() {
                       id="quantity"
                       min="1"
                       value="1"
-                      class="w-12 rounded border-gray-200 py-3 text-center text-xs [-moz-appearance:_textfield] [&::-webkit-outer-spin-button]:m-0 [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:m-0 [&::-webkit-inner-spin-button]:appearance-none"
+                      class="w-12 rounded border-gray-200 py-3 text-center text-xs [-moz-appearance:_textfield] [&::-webkit-inner-spin-button]:m-0 [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:m-0 [&::-webkit-outer-spin-button]:appearance-none"
                     />
                   </div>
 

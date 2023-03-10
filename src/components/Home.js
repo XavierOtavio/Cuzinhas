@@ -22,28 +22,29 @@ function Home() {
             </p>
 
             <div class="mt-8 flex flex-wrap gap-4 text-center">
-              <Link
-                to="/#"
-                class="block w-full rounded bg-red-600 px-12 py-3 text-sm font-medium text-white shadow hover:bg-red-500 focus:outline-none focus:ring active:bg-rose-500 sm:w-auto"
+              <a
+                href="#cozinhas"
+                class="block w-full scroll-smooth rounded bg-red-600 px-12 py-3 text-sm font-medium text-white shadow transition hover:bg-red-500 focus:outline-none focus:ring active:bg-rose-500 sm:w-auto"
               >
                 Vamos começar
-              </Link>
+              </a>
 
-              <Link
-                to="#"
+              <a
+                href="#catalogo"
                 class="block w-full rounded bg-white px-12 py-3 text-sm font-medium text-red-600 shadow hover:text-red-500 focus:outline-none focus:ring active:text-rose-500 sm:w-auto"
               >
                 Saber Mais
-              </Link>
+              </a>
             </div>
           </div>
         </div>
       </section>
-      <div>
+
+      <div id="cozinhas">
         <div class="bg-white">
-          <div class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
-            <div class="max-w-3xl mx-auto text-center">
-              <h2 class="text-base font-semibold text-rose-600 tracking-wide uppercase">
+          <div class="mx-auto max-w-7xl py-12 px-4 sm:px-6 lg:px-8">
+            <div class="mx-auto max-w-3xl text-center">
+              <h2 class="text-base font-semibold uppercase tracking-wide text-rose-600">
                 Marca de confiança em maisde 26,000 casas
               </h2>
               <p class="mt-2 text-3xl font-extrabold text-gray-900 sm:text-4xl">
@@ -53,11 +54,11 @@ function Home() {
           </div>
         </div>
       </div>
-      <section className="bg-stone-300" id="#">
-        <div class="max-w-screen-xl px-4 py-8 mx-auto sm:py-12 sm:px-6 lg:px-8">
+      <section className="bg-stone-300">
+        <div class="mx-auto max-w-screen-xl px-4 py-8 sm:py-12 sm:px-6 lg:px-8">
           <div class="grid grid-cols-1 gap-4 lg:grid-cols-3 lg:items-stretch">
-            <div class="grid p-6 bg-gray-100 rounded place-content-center sm:p-8">
-              <div class="max-w-md mx-auto text-center lg:text-left">
+            <div class="grid place-content-center rounded bg-gray-100 p-6 sm:p-8">
+              <div class="mx-auto max-w-md text-center lg:text-left">
                 <header>
                   <h2 class="text-xl font-bold text-gray-900 sm:text-3xl">
                     Cozinhas
@@ -70,7 +71,7 @@ function Home() {
                 </header>
                 <Link
                   to="productsList"
-                  class="inline-block px-12 py-3 mt-8 text-sm font-medium text-white transition bg-gray-900 border border-gray-900 rounded hover:shadow focus:outline-none focus:ring"
+                  class="mt-8 inline-block rounded border border-gray-900 bg-gray-900 px-12 py-3 text-sm font-medium text-white transition hover:shadow focus:outline-none focus:ring"
                 >
                   <h1>Veja aqi!</h1>
                 </Link>
@@ -80,11 +81,11 @@ function Home() {
             <div class="lg:col-span-2 lg:py-8">
               <ul class="grid grid-cols-2 gap-4">
                 <li>
-                  <Link to="#" class="block group">
+                  <Link to="#" class="group block">
                     <img
                       src="https://www.gower-furniture.co.uk/wp-content/uploads/2021/05/Capri-Dark-Grey.jpg"
                       alt=""
-                      class="object-cover w-full rounded aspect-square"
+                      class="aspect-square w-full rounded object-cover"
                     />
 
                     <div class="mt-3">
@@ -96,11 +97,11 @@ function Home() {
                 </li>
 
                 <li>
-                  <Link to="#" class="block group">
+                  <Link to="#" class="group block">
                     <img
                       src="https://www.eshoper.in/wp-content/uploads/2021/12/best-kitchen-furniture-latest-design-low-price-furnitures-store-panvel-kamothe-navi-mumbai.jpg"
                       alt=""
-                      class="object-cover w-full rounded aspect-square"
+                      class="aspect-square w-full rounded object-cover"
                     />
 
                     <div class="mt-3">
