@@ -1,9 +1,12 @@
 import { EyeIcon, PhoneIcon, EnvelopeIcon } from "@heroicons/react/24/outline";
 import { useState } from "react";
+import OrderModal from "./OrderModal";
 
 export default function Orders() {
   const [search, setSearch] = useState({ status: "", orderId: "" });
   const [page, setPage] = useState(1);
+  const [openModal, setOpenModal] = useState(false);
+  const [modalData, setModalData] = useState({});
 
   let orders = [
     {
@@ -120,55 +123,55 @@ export default function Orders() {
     switch (status) {
       case "Canceled":
         return (
-          <span class="bg-red-100 text-red-800 text-xs font-medium mr-2 px-2.5 py-0.5 rounded">
+          <span class="mr-2 rounded bg-red-100 px-2.5 py-0.5 text-xs font-medium text-red-800">
             Cancelado
           </span>
         );
       case "Refunded":
         return (
-          <span class="bg-pink-100 text-pink-800 text-xs font-medium mr-2 px-2.5 py-0.5 rounded">
+          <span class="mr-2 rounded bg-pink-100 px-2.5 py-0.5 text-xs font-medium text-pink-800">
             Reembolsado
           </span>
         );
       case "InProduction":
         return (
-          <span class="bg-amber-100 text-amber-800 text-xs font-medium mr-2 px-2.5 py-0.5 rounded">
+          <span class="mr-2 rounded bg-amber-100 px-2.5 py-0.5 text-xs font-medium text-amber-800">
             Em produção
           </span>
         );
       case "PendingPayment":
         return (
-          <span class="bg-yellow-100 text-yellow-800 text-xs font-medium mr-2 px-2.5 py-0.5 rounded">
+          <span class="mr-2 rounded bg-yellow-100 px-2.5 py-0.5 text-xs font-medium text-yellow-800">
             À espera de pagamento
           </span>
         );
       case "Assembling":
         return (
-          <span class="bg-blue-100 text-blue-800 text-xs font-medium mr-2 px-2.5 py-0.5 rounded">
+          <span class="mr-2 rounded bg-blue-100 px-2.5 py-0.5 text-xs font-medium text-blue-800">
             Em instalação
           </span>
         );
       case "Scheduling":
         return (
-          <span className="bg-indigo-100 text-indigo-800 text-xs font-medium mr-2 px-2.5 py-0.5 rounded">
+          <span className="mr-2 rounded bg-indigo-100 px-2.5 py-0.5 text-xs font-medium text-indigo-800">
             A agendar
           </span>
         );
       case "Scheduled":
         return (
-          <span class="bg-purple-100 text-purple-800 text-xs font-medium mr-2 px-2.5 py-0.5 rounded">
+          <span class="mr-2 rounded bg-purple-100 px-2.5 py-0.5 text-xs font-medium text-purple-800">
             Agendado
           </span>
         );
       case "Done":
         return (
-          <span class="bg-green-100 text-green-800 text-xs font-medium mr-2 px-2.5 py-0.5 rounded">
+          <span class="mr-2 rounded bg-green-100 px-2.5 py-0.5 text-xs font-medium text-green-800">
             Concluído
           </span>
         );
       default:
         return (
-          <span class="bg-gray-100 text-gray-800 text-xs font-medium mr-2 px-2.5 py-0.5 rounded">
+          <span class="mr-2 rounded bg-gray-100 px-2.5 py-0.5 text-xs font-medium text-gray-800">
             Não definido
           </span>
         );
@@ -200,10 +203,10 @@ export default function Orders() {
     return data.slice((page - 1) * 8, page * 8);
   };
   return (
-    <div className="absolute inset-x-32 inset-y-16 overflow-x-auto shadow-md sm:rounded-lg bg-stone-200">
-      <div className="flex align-baseline justify-between pb-4">
+    <div className="absolute inset-x-32 inset-y-16 overflow-x-auto bg-stone-200 shadow-md sm:rounded-lg">
+      <div className="flex justify-between pb-4 align-baseline">
         <div className="relative mx-6 my-3 flex-[1]">
-          <label htmlFor="statusCheck" className="font-semibold text-sm ">
+          <label htmlFor="statusCheck" className="text-sm font-semibold ">
             Filtrar por estado:
           </label>
           <select
@@ -226,7 +229,7 @@ export default function Orders() {
           </select>
         </div>
         <div className="relative mx-6 my-3 flex-[1]">
-          <label htmlFor="orderIdCheck" className="font-semibold text-sm ">
+          <label htmlFor="orderIdCheck" className="text-sm font-semibold ">
             Filtrar por encomenda:
           </label>
           <input
@@ -240,8 +243,8 @@ export default function Orders() {
         </div>
         <div className="flex-[2]" />
       </div>
-      <table className="table-fixed w-full text-sm text-left text-stone-500">
-        <thead className="text-xs text-stone-900 uppercase ">
+      <table className="w-full table-fixed text-left text-sm text-stone-500">
+        <thead className="text-xs uppercase text-stone-900 ">
           <tr>
             <th className="px-6 py-3" scope="col">
               Encomenda
@@ -259,16 +262,27 @@ export default function Orders() {
         </thead>
         <tbody className="bg-stone-50">
           {sliceData(filteredOrders, page).map((order) => (
-            <tr key={order.id} className="bg-stone-100 border-b">
+            <tr key={order.id} className="border-b bg-stone-100">
               <th
                 scope="row"
-                className="px-6 py-3 whitespace-nowrap cursor-pointer"
+                className="cursor-pointer whitespace-nowrap px-6 py-3"
               >
-                {order.id}
+                <button
+                  className="hover:text-red-600"
+                  onClick={() => {
+                    setOpenModal(true);
+                    setModalData(order);
+                  }}
+                >
+                  <u>{order.id}</u>
+                </button>
               </th>
-              <td className="px-6 py-3 whitespace-nowrap cursor-pointer">
+              {openModal && (
+                <OrderModal openModal={setOpenModal} modalData={modalData} />
+              )}
+              <td className="whitespace-nowrap px-6 py-3">
                 <div className="flex items-center">
-                  <div className="flex-shrink-0 h-10 w-10">
+                  <div className="h-10 w-10 flex-shrink-0">
                     <img
                       className="h-10 w-10 rounded-full"
                       src={order.profilePhoto}
@@ -280,29 +294,30 @@ export default function Orders() {
                   </div>
                 </div>
               </td>
-              <td className="px-6 py-3 whitespace-nowrap">
+              <td className="whitespace-nowrap px-6 py-3">
                 {statusBadge(order.status)}
               </td>
               <td className="px-6 py-3">
                 <div className="inline-grid grid-cols-3 gap-4">
-                  <EyeIcon className="text-indigo-600 hover:text-indigo-900 cursor-pointer w-6" />
+                  <EyeIcon className="w-6 cursor-pointer text-indigo-600 hover:text-indigo-900" />
                   <a href={`tel:${order.phone}`}>
-                    <PhoneIcon className="text-indigo-600 hover:text-indigo-900 cursor-pointer w-6" />
+                    <PhoneIcon className="w-6 cursor-pointer text-indigo-600 hover:text-indigo-900" />
                   </a>
                   <a href={`mail:${order.email}`}>
-                    <EnvelopeIcon className="text-indigo-600 hover:text-indigo-900 cursor-pointer w-6" />
+                    <EnvelopeIcon className="w-6 cursor-pointer text-indigo-600 hover:text-indigo-900" />
                   </a>
                 </div>
               </td>
             </tr>
           ))}
         </tbody>
+
         {calculateRange(filteredOrders).length > 1 && (
-          <tfoot className="inline-flex w-full bottom-0 absolute items-center justify-center mb-4 bg-stone-200">
+          <tfoot className="absolute bottom-0 mb-4 inline-flex w-full items-center justify-center bg-stone-200">
             <td>
               <tr>
                 <button
-                  className="px-4 py-2 rounded-l-md border border-gray-300 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50"
+                  className="rounded-l-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50"
                   onClick={() => setPage(page - 1)}
                   disabled={page === 1}
                 >
@@ -315,14 +330,14 @@ export default function Orders() {
                       page === num
                         ? "bg-indigo-500 text-white"
                         : "bg-white text-gray-700"
-                    } px-4 py-2 border border-gray-300 text-sm font-medium hover:bg-gray-50`}
+                    } border border-gray-300 px-4 py-2 text-sm font-medium hover:bg-gray-50`}
                     onClick={() => setPage(num)}
                   >
                     {num}
                   </button>
                 ))}
                 <button
-                  className="px-4 py-2 rounded-r-md border border-gray-300 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50"
+                  className="rounded-r-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50"
                   onClick={() => setPage(page + 1)}
                   disabled={page === calculateRange(filteredOrders).length}
                 >
