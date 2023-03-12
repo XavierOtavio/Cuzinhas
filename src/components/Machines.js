@@ -30,9 +30,9 @@ function Machines() {
     },
     {
       id: "0003",
-      name: "Altendorf F 45 ElmoDrive",
+      name: "SCM Group Si400EP Nova",
       profilePhoto:
-        "https://files.hoechsmann.com/lexikon/img/full/alt_f45_evodrive_black_edition_2019.jpg",
+        "https://www.scmgroup.com/website/var/tmp/image-thumbnails/40000/41917/thumb__SCM-imgProdotto/Nova%20si%20400@2x.jpeg",
       status: "Serra de painel",
       phone: "912345678",
       email: "jose@cuzinhas.pt",
@@ -83,37 +83,37 @@ function Machines() {
     },
     {
       id: "0009",
-      name: "Inês",
+      name: "SCM Tech Z5",
       profilePhoto:
-        "https://politics.princeton.edu/sites/default/files/styles/square/public/images/p-4.jpeg?h=6d5fbd74&itok=UAzUQXdO",
-      status: "PendingPayment",
+        "https://files.hoechsmann.com/lexikon/img/full/scm_tech_z5_2012.jpg",
+      status: "CNC",
       phone: "912345678",
       email: "jose@cuzinhas.pt",
     },
     {
       id: "0010",
-      name: "Rita",
+      name: "Italpresse XL/8",
       profilePhoto:
-        "https://politics.princeton.edu/sites/default/files/styles/square/public/images/Al-Shami.jpeg?h=227444a7&itok=hmE_Lctk",
-      status: "Assembling",
+        "https://www.rjmachinery.co.uk/imager/www_rjmachinery_co_uk/uploads/product-images/Italpresse_XL8_1_ba70c53f73b486e4404b9862f59e6e07.jpeg",
+      status: "Prensa hidráulica",
       phone: "912345678",
       email: "jose@cuzinhas.pt",
     },
     {
       id: "0011",
-      name: "Luís",
+      name: "SCM Group Sandya 10 S",
       profilePhoto:
-        "https://politics.princeton.edu/sites/default/files/styles/square/public/images/Alkhawaldeh_Headshot.jpg?h=6a43611b&itok=RFd3qC78",
-      status: "Scheduling",
+        "https://www.scmgroup.com/website/var/tmp/image-thumbnails/20000/27144/thumb__SCM-imgProdotto/557-dmc-sd-10_ROSSO_2017@2x.jpeg",
+      status: "Lixadeira",
       phone: "912345678",
       email: "jose@cuzinhas.pt",
     },
     {
       id: "0012",
-      name: "João",
+      name: "SCM Group Sigma 65",
       profilePhoto:
-        "https://politics.princeton.edu/sites/default/files/styles/square/public/images/Greg%20Amusu%20Department%20Photo%20%28002%29%202.jpeg?itok=lqtdmKJB",
-      status: "Scheduled",
+        "https://files.hoechsmann.com/lexikon/img/full/scm_sigma_prima_2015.jpg",
+      status: "Serra de fita",
       phone: "912345678",
       email: "jose@cuzinhas.pt",
     },
@@ -254,10 +254,10 @@ function Machines() {
         </li>
       </ul>
       <div className="absolute inset-x-32 inset-y-32 overflow-x-auto bg-stone-200 shadow-md sm:rounded-lg">
-        <div className="flex justify-between pb-4 align-baseline">
-          <div className="relative mx-6 my-3 flex-[1]">
+        <div className="flex items-center justify-between pb-4">
+          <div className="mx-6 my-3 flex-[1]">
             <label htmlFor="statusCheck" className="text-sm font-semibold ">
-              Filtrar por estado:
+              Filtrar por tipo de Máquina:
             </label>
             <select
               name="statusCheck"
@@ -265,52 +265,41 @@ function Machines() {
               onChange={(e) =>
                 setSearch((search) => ({ ...search, status: e.target.value }))
               }
-              className="peer block w-full appearance-none border-0 border-b-2 border-gray-300 bg-transparent px-0 py-2.5 text-sm text-gray-900 focus:border-red-600 focus:outline-none focus:ring-0 "
+              className="peer w-full appearance-none border-0 border-b-2 border-gray-300 bg-transparent px-0 py-2.5 text-sm text-gray-900 focus:border-red-600 focus:outline-none focus:ring-0 "
             >
               <option value={""}>Todos</option>
-              <option value={"Canceled"}>Cancelado</option>
-              <option value={"Refunded"}>Reembolsado</option>
-              <option value={"PendingPayment"}>À espera de pagamento</option>
-              <option value={"InProduction"}>Em produção</option>
-              <option value={"Scheduling"}>À espera de agendamento</option>
-              <option value={"Scheduled"}>Agendado</option>
-              <option value={"Assembling"}>Em instalação</option>
-              <option value={"Done"}>Concluido</option>
+              <option value={"Serra de painel"}>Serra de painel</option>
+              <option value={"CNC"}>CNC</option>
+              <option value={"Coladeira de borda"}>Coladeira de borda</option>
+              <option value={"Furadeira"}>Furadeira</option>
+              <option value={"Lixadeira"}>Lixadeira</option>
+              <option value={"Prensa hidráulica"}>Prensa hidráulica</option>
+              <option value={"Serra de fita"}>Serra de fita</option>
             </select>
           </div>
-          <div className="relative mx-6 my-3 flex-[1]">
-            <label htmlFor="orderIdCheck" className="text-sm font-semibold ">
-              Filtrar por encomenda:
-            </label>
-            <input
-              name="orderIdCheck"
-              id="orderIdCheck"
-              onChange={(e) =>
-                setSearch((search) => ({
-                  ...search,
-                  orderId: e.target.value,
-                }))
-              }
-              className="peer block w-full appearance-none border-0 border-b-2 border-gray-300 bg-transparent px-0 py-2.5 text-sm text-gray-900 focus:border-red-600 focus:outline-none focus:ring-0 "
-            />
-          </div>
+          <button
+            type="button"
+            class="ml-2 inline-block border border-red-600 bg-red-600 px-10 py-4 font-medium text-white hover:border-red-700 hover:bg-red-700"
+          >
+            Guardar
+          </button>
           <div className="flex-[2]" />
         </div>
         <table className="w-full table-fixed text-left text-sm text-stone-500">
           <thead className="text-xs uppercase text-stone-900 ">
             <tr>
               <th className="px-6 py-3" scope="col">
-                Encomenda
+                ID
               </th>
               <th className="px-6 py-3" scope="col">
-                Cliente
+                Máquina
               </th>
               <th className="px-6 py-3" scope="col">
-                Estado
+                Tipo
               </th>
-              <th className="px-6 py-3" scope="col">
+              {/* <th className="px-6 py-3" scope="col">
                 Ações
-              </th>
+              </th> */}
             </tr>
           </thead>
           <tbody className="bg-stone-50">
@@ -350,7 +339,7 @@ function Machines() {
                 <td className="whitespace-nowrap px-6 py-3">
                   {statusBadge(order.status)}
                 </td>
-                <td className="px-6 py-3">
+                {/* <td className="px-6 py-3">
                   <div className="inline-grid grid-cols-3 gap-4">
                     <EyeIcon className="w-6 cursor-pointer text-indigo-600 hover:text-indigo-900" />
                     <a href={`tel:${order.phone}`}>
@@ -360,7 +349,7 @@ function Machines() {
                       <EnvelopeIcon className="w-6 cursor-pointer text-indigo-600 hover:text-indigo-900" />
                     </a>
                   </div>
-                </td>
+                </td> */}
               </tr>
             ))}
           </tbody>
