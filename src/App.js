@@ -11,6 +11,7 @@ import LayoutFront from "./components/LayoutFront";
 import Products from "./components/Products";
 import ProductsList from "./components/ProductsList";
 import Machines from "./components/Machines";
+import MachinesHistory from "./components/MachineHistory";
 
 function App() {
   return (
@@ -21,7 +22,8 @@ function App() {
           <Route path="orders" element={<Orders />} />
           <Route path="employees" element={<Employees />} />
           <Route path="stock" element={<Stock />} />
-          <Route path="machines" element={<Machines />} />
+          <Route path="machineslist" element={<Machines />} />
+          <Route path="machineshistory" element={<MachinesHistory />} />
         </Route>
         <Route path="/" element={<LayoutFront />}>
           <Route path="" element={<Home />} />

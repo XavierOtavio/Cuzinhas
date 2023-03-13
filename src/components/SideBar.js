@@ -93,7 +93,7 @@ export default function SideBar() {
             </div>
             <div className="py-4">
               <Link
-                to="/dashboard/machines"
+                to="/dashboard/machineslist"
                 className={`group relative flex  justify-center rounded  px-2 py-1.5  ${
                   location.pathname === "/dashboard/machines"
                     ? "bg-stone-900 text-stone-50"
