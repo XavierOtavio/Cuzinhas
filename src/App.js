@@ -12,6 +12,8 @@ import Products from "./components/Products";
 import ProductsList from "./components/ProductsList";
 import Machines from "./components/Machines";
 import MachinesHistory from "./components/MachineHistory";
+import ManProducts from "./components/ManProducts";
+import ProductionManagement from "./components/ProductionManagement";
 
 function App() {
   return (
@@ -24,6 +26,11 @@ function App() {
           <Route path="stock" element={<Stock />} />
           <Route path="machineslist" element={<Machines />} />
           <Route path="machineshistory" element={<MachinesHistory />} />
+          <Route path="manproducts" element={<ManProducts />} />
+          <Route
+            path="productionmanagement"
+            element={<ProductionManagement />}
+          />
         </Route>
         <Route path="/" element={<LayoutFront />}>
           <Route path="" element={<Home />} />

@@ -7,6 +7,8 @@ import {
   TruckIcon,
   UserGroupIcon,
   CogIcon,
+  ListBulletIcon,
+  TableCellsIcon,
 } from "@heroicons/react/24/outline";
 
 export default function SideBar() {
@@ -93,9 +95,24 @@ export default function SideBar() {
             </div>
             <div className="py-4">
               <Link
+                to="/dashboard/manproducts"
+                className={`group relative flex  justify-center rounded  px-2 py-1.5  ${
+                  location.pathname === "/dashboard/manproducts"
+                    ? "bg-stone-900 text-stone-50"
+                    : "bg-stone-50 text-stone-900"
+                }`}
+              >
+                <ListBulletIcon className="h-6 w-6" />
+                <span className="absolute left-full top-1/2 ml-4 -translate-y-1/2 whitespace-nowrap rounded bg-stone-900 px-2 py-1.5 text-xs font-medium text-stone-50 opacity-0 group-hover:opacity-100">
+                  Lista de Produtos
+                </span>
+              </Link>
+            </div>
+            <div className="py-4">
+              <Link
                 to="/dashboard/machineslist"
                 className={`group relative flex  justify-center rounded  px-2 py-1.5  ${
-                  location.pathname === "/dashboard/machines"
+                  location.pathname === "/dashboard/machineslist"
                     ? "bg-stone-900 text-stone-50"
                     : "bg-stone-50 text-stone-900"
                 }`}
@@ -103,6 +120,21 @@ export default function SideBar() {
                 <CogIcon className="h-6 w-6" />
                 <span className="absolute left-full top-1/2 ml-4 -translate-y-1/2 whitespace-nowrap rounded bg-stone-900 px-2 py-1.5 text-xs font-medium text-stone-50 opacity-0 group-hover:opacity-100">
                   Máquinas
+                </span>
+              </Link>
+            </div>
+            <div className="py-4">
+              <Link
+                to="/dashboard/productionmanagement"
+                className={`group relative flex  justify-center rounded  px-2 py-1.5  ${
+                  location.pathname === "/dashboard/productionmanagement"
+                    ? "bg-stone-900 text-stone-50"
+                    : "bg-stone-50 text-stone-900"
+                }`}
+              >
+                <TableCellsIcon className="h-6 w-6" />
+                <span className="absolute left-full top-1/2 ml-4 -translate-y-1/2 whitespace-nowrap rounded bg-stone-900 px-2 py-1.5 text-xs font-medium text-stone-50 opacity-0 group-hover:opacity-100">
+                  Gestão de Produção
                 </span>
               </Link>
             </div>

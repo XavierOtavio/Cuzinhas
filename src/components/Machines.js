@@ -193,7 +193,7 @@ function Machines() {
 
   const calculateRange = (data) => {
     const range = [];
-    const num = Math.ceil(data.length / 8);
+    const num = Math.ceil(data.length / 4);
     for (let i = 1; i <= num; i++) {
       range.push(i);
     }
@@ -201,7 +201,7 @@ function Machines() {
   };
 
   const sliceData = (data, page) => {
-    return data.slice((page - 1) * 8, page * 8);
+    return data.slice((page - 1) * 4, page * 4);
   };
   return (
     <div>
@@ -334,12 +334,8 @@ function Machines() {
                 )}
                 <td className="whitespace-nowrap px-6 py-3">
                   <div className="flex items-center">
-                    <div className="h-10 w-10 flex-shrink-0">
-                      <img
-                        className="aspect-square h-10 w-10 "
-                        src={order.profilePhoto}
-                        alt=""
-                      />
+                    <div className="aspect-video h-24 flex-shrink-0">
+                      <img className="h-24" src={order.profilePhoto} alt="" />
                     </div>
                     <div className="ml-4">
                       <div className="text-sm font-medium">{order.name}</div>

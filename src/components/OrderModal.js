@@ -34,6 +34,7 @@ function OrderModal(props) {
                   <img
                     className="h-24 w-24 rounded-full"
                     src={modalData.profilePhoto}
+                    alt="profile"
                   />
                   <label class="mt-6 block text-sm font-medium text-gray-700">
                     Nome
