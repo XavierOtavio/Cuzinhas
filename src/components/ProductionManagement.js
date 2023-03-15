@@ -19,6 +19,9 @@ function ProductionManagement() {
       status: "pendente",
       phone: "912345678",
       email: "jose@cuzinhas.pt",
+      startDate: "----",
+      prevMsg: "",
+      endDate: "(duração: 1h)",
     },
     {
       id: "0002",
@@ -29,6 +32,9 @@ function ProductionManagement() {
       status: "pendente",
       phone: "912345678",
       email: "jose@cuzinhas.pt",
+      startDate: "----",
+      prevMsg: "",
+      endDate: "(duração: 1h)",
     },
     {
       id: "0003",
@@ -39,6 +45,9 @@ function ProductionManagement() {
       status: "em progresso",
       phone: "912345678",
       email: "jose@cuzinhas.pt",
+      startDate: "2023-3-01 12:00:00",
+      prevMsg: "(Previsão)",
+      endDate: "2023-3-01 13:30:00",
     },
     {
       id: "0004",
@@ -49,6 +58,9 @@ function ProductionManagement() {
       status: "concluido",
       phone: "912345678",
       email: "jose@cuzinhas.pt",
+      startDate: "2023-01-01 09:00:00",
+      prevMsg: "",
+      endDate: "2023-01-01 10:30:00",
     },
     {
       id: "0005",
@@ -59,6 +71,9 @@ function ProductionManagement() {
       status: "em progresso",
       phone: "912345678",
       email: "jose@cuzinhas.pt",
+      startDate: "2023-03-03 09:00:00",
+      prevMsg: "(Previsão)",
+      endDate: "2023-03-03 09:00:00",
     },
     {
       id: "0006",
@@ -69,66 +84,87 @@ function ProductionManagement() {
       status: "pendente",
       phone: "912345678",
       email: "jose@cuzinhas.pt",
+      startDate: "----",
+      prevMsg: "",
+      endDate: "(duração: 1h)",
     },
     {
       id: "0007",
       encomenda: "0004",
-      name: "Sofia",
+      name: "Corte",
       profilePhoto:
         "https://politics.princeton.edu/sites/default/files/styles/square/public/images/Elizabeth-Bachman_092721_0003.jpg?h=102c6dce&itok=uL0Sbls1",
       status: "concluido",
       phone: "912345678",
       email: "jose@cuzinhas.pt",
+      startDate: "2023-01-01 09:00:00",
+      prevMsg: "",
+      endDate: "2023-01-01 10:00:00",
     },
     {
       id: "0008",
       encomenda: "0004",
-      name: "Miguel",
+      name: "Prensagem",
       profilePhoto:
         "https://politics.princeton.edu/sites/default/files/styles/square/public/images/GordonArsenoff_072721_0014-edit%20%281%29.jpg?h=39a78a6d&itok=hgDXBQsE",
       status: "concluido",
       phone: "912345678",
       email: "jose@cuzinhas.pt",
+      startDate: "2023-01-01 10:00:00",
+      prevMsg: "",
+      endDate: "2023-01-01 10:30:00",
     },
     {
       id: "0009",
       encomenda: "0009",
-      name: "Inês",
+      name: "Colagem",
       profilePhoto:
         "https://politics.princeton.edu/sites/default/files/styles/square/public/images/p-4.jpeg?h=6d5fbd74&itok=UAzUQXdO",
       status: "em progresso",
       phone: "912345678",
       email: "jose@cuzinhas.pt",
+      startDate: "2023-03-03 09:00:00",
+      prevMsg: "(Previsão)",
+      endDate: "2023-03-03 10:00:00",
     },
     {
       id: "0010",
       encomenda: "0010",
-      name: "Rita",
+      name: "Colagem",
       profilePhoto:
         "https://politics.princeton.edu/sites/default/files/styles/square/public/images/Al-Shami.jpeg?h=227444a7&itok=hmE_Lctk",
       status: "em progresso",
       phone: "912345678",
       email: "jose@cuzinhas.pt",
+      startDate: "2023-03-03 10:00:00",
+      prevMsg: "(Previsão)",
+      endDate: "2023-03-03 11:00:00",
     },
     {
       id: "0011",
       encomenda: "0011",
-      name: "Luís",
+      name: "Lixar",
       profilePhoto:
         "https://politics.princeton.edu/sites/default/files/styles/square/public/images/Alkhawaldeh_Headshot.jpg?h=6a43611b&itok=RFd3qC78",
       status: "concluido",
       phone: "912345678",
       email: "jose@cuzinhas.pt",
+      startDate: "2023-02-03 11:00:00",
+      prevMsg: "",
+      endDate: "2023-02-03 12:00:00",
     },
     {
       id: "0012",
       encomenda: "0012",
-      name: "João",
+      name: "Lixar",
       profilePhoto:
         "https://politics.princeton.edu/sites/default/files/styles/square/public/images/Greg%20Amusu%20Department%20Photo%20%28002%29%202.jpeg?itok=lqtdmKJB",
       status: "concluido",
       phone: "912345678",
       email: "jose@cuzinhas.pt",
+      startDate: "2023-02-03 12:00:00",
+      prevMsg: "",
+      endDate: "2023-02-03 13:00:00",
     },
   ];
 
@@ -193,30 +229,37 @@ function ProductionManagement() {
   const machine = (order) => {
     switch (order.status) {
       case "pendente":
-        return (
-          <select>
-            <option value="0">--</option>
-            <option value="1">Máquina 1</option>
-            <option value="2">Máquina 2</option>
-            <option value="3">Máquina 3</option>
-          </select>
-        );
+        switch (order.name) {
+          case "Corte":
+            return (
+              <select>
+                <option value="0">--</option>
+                <option value="1">001-SCM Group Si400EP</option>
+                <option value="2">012-Holzma HPP 250</option>
+                <option value="3">008-SCM Group Sigma 65</option>
+                <option value="4">003-SCM Group Si400EP</option>
+              </select>
+            );
+        }
       case "em progresso":
-        return (
-          <select>
-            <option value="1">Máquina 1</option>
-            <option value="2">Máquina 2</option>
-            <option value="3">Máquina 3</option>
-          </select>
-        );
+        switch (order.name) {
+          case "Lixar":
+            return <option value="2">011-SCM Group Sandya 10 S</option>;
+          case "Prensagem":
+            return <option value="2">007-Orma NPC/A 25/14</option>;
+        }
       case "concluido":
-        return (
-          <select>
-            <option value="1">Máquina 1</option>
-            <option value="2">Máquina 2</option>
-            <option value="3">Máquina 3</option>
-          </select>
-        );
+        switch (order.name) {
+          case "Corte":
+            return <option value="1">003-SCM Group Si400EP Nova</option>;
+          case "Lixar":
+            return <option value="1">006-Heesemann MFA 10</option>;
+          case "Prensagem":
+            return <option value="1">010-Italpresse XL/8</option>;
+
+          case "Colagem":
+            return <option value="1">004-Homag Optimat KL 78</option>;
+        }
       default:
         return (
           <select>
@@ -225,6 +268,81 @@ function ProductionManagement() {
             <option value="2">Máquina 2</option>
             <option value="3">Máquina 3</option>
           </select>
+        );
+    }
+  };
+
+  const worker = (order) => {
+    switch (order.status) {
+      case "pendente":
+        switch (order.name) {
+          case "Corte":
+            return (
+              <select className="pr-12">
+                <option value="0">--</option>
+                <option value="1">Inês Chunha</option>
+                <option value="2">Rita Silva</option>
+                <option value="3">Luís Abraão</option>
+                <option value="4">João Gomes</option>
+              </select>
+            );
+        }
+      case "em progresso":
+        switch (order.name) {
+          case "Lixar":
+            return <option value="1">João Gomes</option>;
+          case "Prensagem":
+            return <option value="1">Inês Chunha</option>;
+        }
+      case "concluido":
+        switch (order.name) {
+          case "Corte":
+            return <option value="1">António Ramalho</option>;
+          case "Lixar":
+            return <option value="1">Dimitri Caria</option>;
+          case "Prensagem":
+            return <option value="1">Luís Abraão</option>;
+
+          case "Colagem":
+            return <option value="1">Rita Silva</option>;
+        }
+      default:
+        return (
+          <select>
+            <option value="0">Selecione uma máquina</option>
+            <option value="1">Máquina 1</option>
+            <option value="2">Máquina 2</option>
+            <option value="3">Máquina 3</option>
+          </select>
+        );
+    }
+  };
+
+  const actionButton = (order) => {
+    switch (order.status) {
+      case "pendente":
+        return (
+          <button class=" flex justify-center border border-red-600 bg-red-600 py-2 px-10 text-center text-xs font-medium text-white hover:border-red-700 hover:bg-red-700">
+            Iniciar
+          </button>
+        );
+      case "em progresso":
+        return (
+          <button class=" flex justify-center border border-red-600 bg-stone-50 py-2 px-10 text-center text-xs font-medium text-red-600 hover:border-red-700 hover:bg-stone-100 hover:text-red-700">
+            Cancelar
+          </button>
+        );
+      case "concluido":
+        return (
+          <button class="flex cursor-not-allowed justify-center py-2 px-10 text-center text-xs font-medium text-stone-600 hover:border-red-700 hover:bg-stone-100 hover:text-red-700">
+            ___________
+          </button>
+        );
+      default:
+        return (
+          <span class="mr-2 rounded bg-gray-100 px-2.5 py-0.5 text-xs font-medium text-gray-800">
+            Não definido
+          </span>
         );
     }
   };
@@ -252,7 +370,7 @@ function ProductionManagement() {
   };
 
   const sliceData = (data, page) => {
-    return data.slice((page - 1) * 8, page * 8);
+    return data.slice((page - 1) * 10, page * 10);
   };
   return (
     <div className="absolute inset-x-32 inset-y-16 overflow-x-auto bg-stone-200 shadow-md sm:rounded-lg">
@@ -293,30 +411,34 @@ function ProductionManagement() {
       <table className="w-full table-fixed text-left text-sm text-stone-500">
         <thead className="text-xs uppercase text-stone-900 ">
           <tr>
-            <th className="px-6 py-3" scope="col">
+            <th className="py-3 pl-3" scope="col">
               ID Processo
             </th>
-            <th className="px-6 py-3" scope="col">
+            <th className="py-3" scope="col">
               Encomenda
             </th>
-            <th className="px-6 py-3" scope="col">
+            <th className="py-3 pl-3" scope="col">
               Processo
             </th>
-            <th className="px-6 py-3" scope="col">
+            <th className=" py-3" scope="col">
               Estado
             </th>
-            <th className="px-6 py-3" scope="col">
+            <th className=" py-3" scope="col">
               Máquina
             </th>
             <th className="px-6 py-3" scope="col">
+              Funcionário
+            </th>
+
+            <th className="px-8 py-3" scope="col">
               Data de Início
             </th>
             <th className="px-6 py-3" scope="col">
               Data de Fim
             </th>
-            {/* <th className="px-6 py-3" scope="col">
+            <th className="px-6 py-3" scope="col">
               Ações
-            </th> */}
+            </th>
           </tr>
         </thead>
         <tbody className="bg-stone-50">
@@ -324,12 +446,11 @@ function ProductionManagement() {
             <tr key={order.id} className="border-b bg-stone-100">
               <th
                 scope="row"
-                className="cursor-pointer whitespace-nowrap px-6 py-3"
+                className="cursor-pointer whitespace-nowrap px-3 py-3"
               >
                 {order.id}
               </th>
-
-              <td className="whitespace-nowrap px-6 py-3">
+              <td className="whitespace-nowrap py-3">
                 <button
                   className="hover:text-red-600"
                   onClick={() => {
@@ -343,8 +464,8 @@ function ProductionManagement() {
               {openModal && (
                 <OrderModal openModal={setOpenModal} modalData={modalData} />
               )}
-              <td className="whitespace-nowrap px-6 py-3">
-                <div className="flex items-center">
+              <td className="whitespace-nowrap py-3">
+                <div className="flex items-start">
                   {/* <div className="h-10 w-10 flex-shrink-0">
                     <img
                       className="h-10 w-10 rounded-full"
@@ -356,32 +477,32 @@ function ProductionManagement() {
                     <div className="text-sm font-medium">
                       {processColor(order)}
                     </div>
-
                     {/* <div className="text-sm font-medium">{order.name}</div> */}
                   </div>
                 </div>
               </td>
-              <td className="whitespace-nowrap px-6 py-3">
+              <td className="whitespace-nowrap py-3">
                 {statusBadge(order.status)}
               </td>
-              <td className="whitespace-nowrap px-6 py-3">{machine(order)}</td>
-              <td className="whitespace-nowrap px-6 py-3">
-                <div className="inline-grid grid-cols-3 gap-4">data teste</div>
-              </td>
-              <td className="whitespace-nowrap px-6 py-3">
-                <div className="inline-grid grid-cols-3 gap-4">data teste</div>
-              </td>
-              {/* <td className="px-6 py-3">
-                <div className="inline-grid grid-cols-3 gap-4">
-                  <EyeIcon className="w-6 cursor-pointer text-indigo-600 hover:text-indigo-900" />
-                  <a href={`tel:${order.phone}`}>
-                    <PhoneIcon className="w-6 cursor-pointer text-indigo-600 hover:text-indigo-900" />
-                  </a>
-                  <a href={`mail:${order.email}`}>
-                    <EnvelopeIcon className="w-6 cursor-pointer text-indigo-600 hover:text-indigo-900" />
-                  </a>
+              <td className="whitespace-nowrap py-3">{machine(order)}</td>
+              <td className="whitespace-nowrap px-6 py-3">{worker(order)}</td>
+              <td className="whitespace-nowrap py-3 px-8">
+                <div className="ml-2 inline-grid grid-cols-3 gap-4">
+                  {order.startDate}
                 </div>
-              </td> */}
+              </td>
+              <td className="whitespace-nowrap px-6 py-3">
+                <div className="inline-grid grid-cols-3 gap-4">
+                  {order.endDate}
+                  <br />
+                  {order.prevMsg}
+                </div>
+              </td>
+              <td className="py-3">
+                <div className="inline-grid grid-cols-3 gap-4">
+                  {actionButton(order)}
+                </div>
+              </td>
             </tr>
           ))}
         </tbody>
