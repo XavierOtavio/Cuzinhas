@@ -14,6 +14,7 @@ import Machines from "./components/Machines";
 import MachinesHistory from "./components/MachineHistory";
 import ManProducts from "./components/ManProducts";
 import ProductionManagement from "./components/ProductionManagement";
+import DetailProducts from "./components/DetailProducts";
 
 function App() {
   return (
@@ -27,6 +28,7 @@ function App() {
           <Route path="machineslist" element={<Machines />} />
           <Route path="machineshistory" element={<MachinesHistory />} />
           <Route path="manproducts" element={<ManProducts />} />
+          <Route path="detailproducts" element={<DetailProducts />} />
           <Route
             path="productionmanagement"
             element={<ProductionManagement />}

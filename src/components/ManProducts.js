@@ -165,7 +165,9 @@ function ManProducts() {
                 </td>
                 <td className="whitespace-nowrap px-6 py-3">
                   <th>
-                    <EyeIcon className="w-6 cursor-pointer text-indigo-600 hover:text-indigo-900" />
+                    <Link to="/dashboard/detailproducts">
+                      <EyeIcon className="w-6 cursor-pointer text-indigo-600 hover:text-indigo-900" />
+                    </Link>
                   </th>
                   <th>
                     <TrashIcon className="w-6 cursor-pointer text-indigo-600 hover:text-indigo-900" />

@@ -3,6 +3,7 @@ import {
   PhoneIcon,
   EnvelopeIcon,
   CalendarDaysIcon,
+  PencilIcon,
 } from "@heroicons/react/24/outline";
 import { useState } from "react";
 
@@ -20,6 +21,7 @@ export default function Orders() {
       earningsHour: "12",
       phone: "912345678",
       email: "jose@cuzinhas.pt",
+      hab: "Supervisonar operações, gerir staff",
     },
     {
       id: "0002",
@@ -30,6 +32,7 @@ export default function Orders() {
       role: "EngineerProd",
       phone: "912345678",
       email: "jose@cuzinhas.pt",
+      hab: "Planejar, desenvolver e implementar",
     },
     {
       id: "0003",
@@ -40,6 +43,7 @@ export default function Orders() {
       role: "MenegerQual",
       phone: "912345678",
       email: "jose@cuzinhas.pt",
+      hab: "Controlar qualidade de MP e PF",
     },
     {
       id: "0004",
@@ -50,6 +54,7 @@ export default function Orders() {
       role: "ManagerSales",
       phone: "912345678",
       email: "jose@cuzinhas.pt",
+      hab: "Gerir vendas",
     },
     {
       id: "0005",
@@ -60,6 +65,7 @@ export default function Orders() {
       role: "TecInst",
       phone: "912345678",
       email: "jose@cuzinhas.pt",
+      hab: "Responsavel pela instalação domestica",
     },
     {
       id: "0006",
@@ -70,6 +76,7 @@ export default function Orders() {
       role: "TecInst",
       phone: "912345678",
       email: "jose@cuzinhas.pt",
+      hab: "Responsavel pela instalação domestica",
     },
     {
       id: "0007",
@@ -80,6 +87,7 @@ export default function Orders() {
       role: "Sales",
       phone: "912345678",
       email: "jose@cuzinhas.pt",
+      hab: "Relação cliente/processo de produção",
     },
     {
       id: "0008",
@@ -90,6 +98,7 @@ export default function Orders() {
       role: "Sales",
       phone: "912345678",
       email: "jose@cuzinhas.pt",
+      hab: "Relação cliente/processo de produção",
     },
     {
       id: "0009",
@@ -100,6 +109,7 @@ export default function Orders() {
       role: "ProdWorker",
       phone: "912345678",
       email: "jose@cuzinhas.pt",
+      hab: "Serras e Coladeira",
     },
     {
       id: "0010",
@@ -110,6 +120,7 @@ export default function Orders() {
       role: "ProdWorker",
       phone: "912345678",
       email: "jose@cuzinhas.pt",
+      hab: "Furadeira e lixadeira",
     },
     {
       id: "0011",
@@ -120,6 +131,7 @@ export default function Orders() {
       role: "ProdWorker",
       phone: "912345678",
       email: "jose@cuzinhas.pt",
+      hab: "Prensa hidraulica e CNC",
     },
     {
       id: "0012",
@@ -130,6 +142,7 @@ export default function Orders() {
       role: "ProdWorker",
       phone: "912345678",
       email: "jose@cuzinhas.pt",
+      hab: "Serras",
     },
   ];
 
@@ -137,49 +150,49 @@ export default function Orders() {
     switch (role) {
       case "ManagerProd":
         return (
-          <span class="bg-red-100 text-red-800 text-xs font-medium mr-2 px-2.5 py-0.5 rounded">
+          <span class="mr-2 rounded bg-red-100 px-2.5 py-0.5 text-xs font-medium text-red-800">
             Gerente de Produção
           </span>
         );
       case "EngineerProd":
         return (
-          <span class="bg-pink-100 text-pink-800 text-xs font-medium mr-2 px-2.5 py-0.5 rounded">
+          <span class="mr-2 rounded bg-pink-100 px-2.5 py-0.5 text-xs font-medium text-pink-800">
             Engenheiro de Produção
           </span>
         );
       case "MenegerQual":
         return (
-          <span class="bg-amber-100 text-amber-800 text-xs font-medium mr-2 px-2.5 py-0.5 rounded">
+          <span class="mr-2 rounded bg-amber-100 px-2.5 py-0.5 text-xs font-medium text-amber-800">
             Gerente de qualidade
           </span>
         );
       case "ManagerSales":
         return (
-          <span class="bg-yellow-100 text-yellow-800 text-xs font-medium mr-2 px-2.5 py-0.5 rounded">
+          <span class="mr-2 rounded bg-yellow-100 px-2.5 py-0.5 text-xs font-medium text-yellow-800">
             Gerente de vendas
           </span>
         );
       case "TecInst":
         return (
-          <span class="bg-blue-100 text-blue-800 text-xs font-medium mr-2 px-2.5 py-0.5 rounded">
+          <span class="mr-2 rounded bg-blue-100 px-2.5 py-0.5 text-xs font-medium text-blue-800">
             Tecnico de instalação
           </span>
         );
       case "Sales":
         return (
-          <span className="bg-indigo-100 text-indigo-800 text-xs font-medium mr-2 px-2.5 py-0.5 rounded">
+          <span className="mr-2 rounded bg-indigo-100 px-2.5 py-0.5 text-xs font-medium text-indigo-800">
             Atendimento ao cliente
           </span>
         );
       case "ProdWorker":
         return (
-          <span class="bg-purple-100 text-purple-800 text-xs font-medium mr-2 px-2.5 py-0.5 rounded">
+          <span class="mr-2 rounded bg-purple-100 px-2.5 py-0.5 text-xs font-medium text-purple-800">
             Trabalhador de produção
           </span>
         );
       default:
         return (
-          <span class="bg-gray-100 text-gray-800 text-xs font-medium mr-2 px-2.5 py-0.5 rounded">
+          <span class="mr-2 rounded bg-gray-100 px-2.5 py-0.5 text-xs font-medium text-gray-800">
             Não definido
           </span>
         );
@@ -211,10 +224,10 @@ export default function Orders() {
     return data.slice((page - 1) * 8, page * 8);
   };
   return (
-    <div className="absolute inset-x-32 inset-y-16 overflow-x-auto shadow-md sm:rounded-lg bg-stone-200">
-      <div className="flex align-baseline justify-between pb-4">
+    <div className="absolute inset-x-32 inset-y-16 overflow-x-auto bg-stone-200 shadow-md sm:rounded-lg">
+      <div className="flex justify-between pb-4 align-baseline">
         <div className="relative mx-6 my-3 flex-[1]">
-          <label htmlFor="statusCheck" className="font-semibold text-sm ">
+          <label htmlFor="statusCheck" className="text-sm font-semibold ">
             Filtrar por Cargo:
           </label>
           <select
@@ -236,7 +249,7 @@ export default function Orders() {
           </select>
         </div>
         <div className="relative mx-6 my-3 flex-[1]">
-          <label htmlFor="orderIdCheck" className="font-semibold text-sm ">
+          <label htmlFor="orderIdCheck" className="text-sm font-semibold ">
             Filtrar por Nome:
           </label>
           <input
@@ -248,10 +261,18 @@ export default function Orders() {
             className="peer block w-full appearance-none border-0 border-b-2 border-gray-300 bg-transparent px-0 py-2.5 text-sm text-gray-900 focus:border-red-600 focus:outline-none focus:ring-0 "
           />
         </div>
+        <div>
+          <button
+            type="button"
+            class="ml-2 inline-block border border-red-600 bg-red-600 px-10 py-4 font-medium text-white hover:border-red-700 hover:bg-red-700"
+          >
+            Adicionar funcionario
+          </button>
+        </div>
         <div className="flex-[2]" />
       </div>
-      <table className="table-fixed w-full text-sm text-left text-stone-500">
-        <thead className="text-xs text-stone-900 uppercase ">
+      <table className="w-full table-fixed text-left text-sm text-stone-500">
+        <thead className="text-xs uppercase text-stone-900 ">
           <tr>
             <th className="px-6 py-3" scope="col">
               Nº Identificação
@@ -261,6 +282,9 @@ export default function Orders() {
             </th>
             <th className="px-6 py-3" scope="col">
               Cargo
+            </th>
+            <th className="px-6 py-3" scope="col">
+              Habilitado para:
             </th>
 
             <th className="px-6 py-3" scope="col">
@@ -273,16 +297,16 @@ export default function Orders() {
         </thead>
         <tbody>
           {sliceData(filteredOrders, page).map((order) => (
-            <tr key={order.id} className="bg-stone-100 border-b">
+            <tr key={order.id} className="border-b bg-stone-100">
               <th
                 scope="row"
-                className="px-6 py-3 whitespace-nowrap cursor-pointer"
+                className="cursor-pointer whitespace-nowrap px-6 py-3"
               >
                 {order.id}
               </th>
-              <td className="px-6 py-3 whitespace-nowrap cursor-pointer">
+              <td className="cursor-pointer whitespace-nowrap px-6 py-3">
                 <div className="flex items-center">
-                  <div className="flex-shrink-0 h-10 w-10">
+                  <div className="h-10 w-10 flex-shrink-0">
                     <img
                       className="h-10 w-10 rounded-full"
                       src={order.profilePhoto}
@@ -294,18 +318,20 @@ export default function Orders() {
                   </div>
                 </div>
               </td>
-              <td className="px-6 py-3 whitespace-nowrap">
+              <td className="whitespace-nowrap px-6 py-3">
                 {statusBadge(order.role)}
               </td>
+              <td className="whitespace-nowrap px-6 py-3">{order.hab}</td>
               <td className="px-6 py-3">
-                <div className="inline-grid grid-cols-4 gap-4">
-                  <EyeIcon className="text-indigo-600 hover:text-indigo-900 cursor-pointer w-6" />
-                  <CalendarDaysIcon className="text-indigo-600 hover:text-indigo-900 cursor-pointer w-6" />
+                <div className="inline-grid grid-cols-5 gap-4">
+                  <EyeIcon className="w-6 cursor-pointer text-indigo-600 hover:text-indigo-900" />
+                  <PencilIcon className="w-6 cursor-pointer text-indigo-600 hover:text-indigo-900" />
+                  <CalendarDaysIcon className="w-6 cursor-pointer text-indigo-600 hover:text-indigo-900" />
                   <a href={`tel:${order.phone}`}>
-                    <PhoneIcon className="text-indigo-600 hover:text-indigo-900 cursor-pointer w-6" />
+                    <PhoneIcon className="w-6 cursor-pointer text-indigo-600 hover:text-indigo-900" />
                   </a>
                   <a href={`mail:${order.email}`}>
-                    <EnvelopeIcon className="text-indigo-600 hover:text-indigo-900 cursor-pointer w-6" />
+                    <EnvelopeIcon className="w-6 cursor-pointer text-indigo-600 hover:text-indigo-900" />
                   </a>
                 </div>
               </td>
@@ -314,11 +340,11 @@ export default function Orders() {
           ))}
         </tbody>
         {calculateRange(filteredOrders).length > 1 && (
-          <tfoot className="inline-flex w-full bottom-0 absolute items-center justify-center mb-4 bg-stone-200">
+          <tfoot className="absolute bottom-0 mb-4 inline-flex w-full items-center justify-center bg-stone-200">
             <td>
               <tr>
                 <button
-                  className="px-4 py-2 rounded-l-md border border-gray-300 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50"
+                  className="rounded-l-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50"
                   onClick={() => setPage(page - 1)}
                   disabled={page === 1}
                 >
@@ -331,14 +357,14 @@ export default function Orders() {
                       page === num
                         ? "bg-indigo-500 text-white"
                         : "bg-white text-gray-700"
-                    } px-4 py-2 border border-gray-300 text-sm font-medium hover:bg-gray-50`}
+                    } border border-gray-300 px-4 py-2 text-sm font-medium hover:bg-gray-50`}
                     onClick={() => setPage(num)}
                   >
                     {num}
                   </button>
                 ))}
                 <button
-                  className="px-4 py-2 rounded-r-md border border-gray-300 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50"
+                  className="rounded-r-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50"
                   onClick={() => setPage(page + 1)}
                   disabled={page === calculateRange(filteredOrders).length}
                 >
