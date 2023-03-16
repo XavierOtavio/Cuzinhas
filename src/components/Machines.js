@@ -19,6 +19,9 @@ function Machines() {
       status: "Serra de painel",
       phone: "912345678",
       email: "jose@cuzinhas.pt",
+      estado: "Ativo",
+      custoHora: "10,00€",
+      manutencao: "350,00€",
     },
     {
       id: "0002",
@@ -28,6 +31,9 @@ function Machines() {
       status: "CNC",
       phone: "912345678",
       email: "jose@cuzinhas.pt",
+      estado: "Em manutenção",
+      custoHora: "12,00€",
+      manutencao: "246,00€",
     },
     {
       id: "0003",
@@ -37,6 +43,9 @@ function Machines() {
       status: "Serra de painel",
       phone: "912345678",
       email: "jose@cuzinhas.pt",
+      estado: "Ativo",
+      custoHora: "11,00€",
+      manutencao: "350,00€",
     },
     {
       id: "0004",
@@ -45,6 +54,9 @@ function Machines() {
       status: "Coladeira de borda",
       phone: "912345678",
       email: "jose@cuzinhas.pt",
+      estado: "Ativo",
+      custoHora: "7,00€",
+      manutencao: "150,00€",
     },
     {
       id: "0005",
@@ -54,6 +66,9 @@ function Machines() {
       status: "Furadeira",
       phone: "912345678",
       email: "jose@cuzinhas.pt",
+      estado: "Avariado",
+      custoHora: "5,00€",
+      manutencao: "130,00€",
     },
     {
       id: "0006",
@@ -63,6 +78,9 @@ function Machines() {
       status: "Lixadeira",
       phone: "912345678",
       email: "jose@cuzinhas.pt",
+      estado: "Ativo",
+      custoHora: "8,00€",
+      manutencao: "200,00€",
     },
     {
       id: "0007",
@@ -72,6 +90,9 @@ function Machines() {
       status: "Prensa hidráulica",
       phone: "912345678",
       email: "jose@cuzinhas.pt",
+      estado: "Ativo",
+      custoHora: "9,00€",
+      manutencao: "220,00€",
     },
     {
       id: "0008",
@@ -81,6 +102,9 @@ function Machines() {
       status: "Serra de fita",
       phone: "912345678",
       email: "jose@cuzinhas.pt",
+      estado: "Ativo",
+      custoHora: "13,00€",
+      manutencao: "300,00€",
     },
     {
       id: "0009",
@@ -90,6 +114,9 @@ function Machines() {
       status: "CNC",
       phone: "912345678",
       email: "jose@cuzinhas.pt",
+      estado: "Ativo",
+      custoHora: "15,00€",
+      manutencao: "350,00€",
     },
     {
       id: "0010",
@@ -99,6 +126,9 @@ function Machines() {
       status: "Prensa hidráulica",
       phone: "912345678",
       email: "jose@cuzinhas.pt",
+      estado: "Ativo",
+      custoHora: "9,00€",
+      manutencao: "220,00€",
     },
     {
       id: "0011",
@@ -108,6 +138,9 @@ function Machines() {
       status: "Lixadeira",
       phone: "912345678",
       email: "jose@cuzinhas.pt",
+      estado: "Ativo",
+      custoHora: "8,00€",
+      manutencao: "200,00€",
     },
     {
       id: "0012",
@@ -117,6 +150,9 @@ function Machines() {
       status: "Serra de fita",
       phone: "912345678",
       email: "jose@cuzinhas.pt",
+      estado: "Ativo",
+      custoHora: "13,00€",
+      manutencao: "310,00€",
     },
   ];
 
@@ -178,6 +214,36 @@ function Machines() {
         );
     }
   };
+
+  const estadoMaquina = (order) => {
+    switch (order.estado) {
+      case "Avariado":
+        return (
+          <span class="mr-2 rounded px-2.5 py-0.5 text-xs font-medium text-red-600">
+            Avariado
+          </span>
+        );
+      case "Ativo":
+        return (
+          <span class="mr-2 rounded px-2.5 py-0.5 text-xs font-medium text-green-700">
+            Ativo
+          </span>
+        );
+      case "Em manutenção":
+        return (
+          <span class="mr-2 rounded px-2.5 py-0.5 text-xs font-medium text-yellow-600">
+            Em manutenção
+          </span>
+        );
+      default:
+        return (
+          <span class="mr-2 rounded bg-gray-100 px-2.5 py-0.5 text-xs font-medium text-gray-800">
+            Não definido
+          </span>
+        );
+    }
+  };
+
   const filteredOrders = orders.filter((order) => {
     if (search.status === "" && search.orderId === "") return order;
     if (search.status === "" && search.orderId !== "") {
@@ -205,65 +271,7 @@ function Machines() {
   };
   return (
     <div>
-      <ul class="absolute inset-y-6 inset-x-32 flex w-56 border-b border-gray-100">
-        <Link to="/dashboard/machineslist">
-          <li class="flex-1">
-            <a class="relative block p-4" href="">
-              <span class="absolute inset-x-0 -bottom-px h-px w-full bg-red-600"></span>
-
-              <div class="flex items-center justify-center gap-4">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  class="h-5 w-5 flex-shrink-0 text-gray-500"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"
-                  />
-                </svg>
-
-                <span class="text-sm font-medium text-gray-900">
-                  {" "}
-                  Máquinas{" "}
-                </span>
-              </div>
-            </a>
-          </li>
-        </Link>
-        <Link to="/dashboard/machineshistory">
-          <li class="flex-1">
-            <a class="relative block p-4" href="">
-              <div class="flex items-center justify-center gap-4">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  class="h-5 w-5 flex-shrink-0 text-gray-500"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-3l-4 4z"
-                  />
-                </svg>
-
-                <span class="text-sm font-medium text-gray-900">
-                  {" "}
-                  Histórico
-                </span>
-              </div>
-            </a>
-          </li>
-        </Link>
-      </ul>
-      <div className="absolute inset-x-32 inset-y-32 overflow-x-auto bg-stone-200 shadow-md sm:rounded-lg">
+      <div className="absolute inset-x-32 inset-y-16 overflow-x-auto bg-stone-200 shadow-md sm:rounded-lg">
         <div className="flex items-center justify-between pb-4">
           <div className="mx-6 my-3 flex-[1]">
             <label htmlFor="statusCheck" className="text-sm font-semibold ">
@@ -301,15 +309,21 @@ function Machines() {
               <th className="px-6 py-3" scope="col">
                 ID
               </th>
-              <th className="px-6 py-3" scope="col">
+              <th className=" py-3" scope="col">
                 Máquina
               </th>
-              <th className="px-6 py-3" scope="col">
+              <th className="px-32 py-3" scope="col">
                 Tipo
               </th>
-              {/* <th className="px-6 py-3" scope="col">
-                Ações
-              </th> */}
+              <th className="px-6 py-3" scope="col">
+                Estado
+              </th>
+              <th className="px-6 py-3" scope="col">
+                Custo/H
+              </th>
+              <th className="px-6 py-3" scope="col">
+                Custo Manutenção
+              </th>
             </tr>
           </thead>
           <tbody className="bg-stone-50">
@@ -319,20 +333,10 @@ function Machines() {
                   scope="row"
                   className="cursor-pointer whitespace-nowrap px-6 py-3"
                 >
-                  <button
-                    className="hover:text-red-600"
-                    onClick={() => {
-                      setOpenModal(true);
-                      setModalData(order);
-                    }}
-                  >
-                    <u>{order.id}</u>
-                  </button>
+                  {order.id}
                 </th>
-                {openModal && (
-                  <OrderModal openModal={setOpenModal} modalData={modalData} />
-                )}
-                <td className="whitespace-nowrap px-6 py-3">
+
+                <td className="whitespace-nowrap py-3">
                   <div className="flex items-center">
                     <div className="aspect-video h-24 flex-shrink-0">
                       <img className="h-24" src={order.profilePhoto} alt="" />
@@ -342,20 +346,18 @@ function Machines() {
                     </div>
                   </div>
                 </td>
-                <td className="whitespace-nowrap px-6 py-3">
+                <td className="whitespace-nowrap px-32 py-3">
                   {statusBadge(order.status)}
                 </td>
-                {/* <td className="px-6 py-3">
-                  <div className="inline-grid grid-cols-3 gap-4">
-                    <EyeIcon className="w-6 cursor-pointer text-indigo-600 hover:text-indigo-900" />
-                    <a href={`tel:${order.phone}`}>
-                      <PhoneIcon className="w-6 cursor-pointer text-indigo-600 hover:text-indigo-900" />
-                    </a>
-                    <a href={`mail:${order.email}`}>
-                      <EnvelopeIcon className="w-6 cursor-pointer text-indigo-600 hover:text-indigo-900" />
-                    </a>
-                  </div>
-                </td> */}
+                <td className="whitespace-nowrap px-6 py-3">
+                  {estadoMaquina(order)}
+                </td>
+                <td className="whitespace-nowrap px-6 py-3">
+                  {order.custoHora}/h
+                </td>
+                <td className="whitespace-nowrap px-6 py-3">
+                  {order.manutencao}/mês
+                </td>
               </tr>
             ))}
           </tbody>
