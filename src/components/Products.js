@@ -1,12 +1,11 @@
-import { he } from "date-fns/locale";
 import React, { useEffect } from "react";
 import { useState } from "react";
 
 export default function Products() {
   const [price, setPrice] = useState(3600);
-  var width;
-  var height;
-  var quantity;
+  let width;
+  let height;
+  let quantity;
 
   const handleClick = (event) => {
     switch (event.target.id) {
@@ -19,6 +18,8 @@ export default function Products() {
       case "branca":
         setPrice(width * height * 0.03 + 300);
         break;
+      default:
+        console.log("error");
     }
   };
 
@@ -34,7 +35,7 @@ export default function Products() {
         setPrice(event.target.value * width * height * 0.03);
         break;
       default:
-        setPrice(price);
+        console.log("error");
     }
   };
 
@@ -195,6 +196,37 @@ export default function Products() {
                   />{" "}
                   cm
                 </fieldset>
+                <fieldset class="relative inline-block py-2 pr-3">
+                  <legend class="mb-1 text-sm font-medium">
+                    Tipo de material
+                  </legend>
+                  <select
+                    id="material-select"
+                    class="focus:shadow-outline block appearance-none rounded border border-gray-400 bg-white px-4 py-2 pr-8 leading-tight shadow hover:border-gray-500 focus:outline-none"
+                  >
+                    <option value="solid-wood">Madeira sólida</option>
+                    <option value="laminate">Laminados</option>
+                    <option value="veneer">Madeira veneer</option>
+                    <option value="plywood">Contraplacado</option>
+                    <option value="melamine">Melamínico</option>
+                    <option value="marble">Marmore</option>
+                    <option value="particle-board">Aglomerado</option>
+                  </select>
+                </fieldset>
+                <fieldset class="relative inline-block py-2 pr-3">
+                  <legend class="mb-1 text-sm font-medium">
+                    Tipo de tampo
+                  </legend>
+                  <select
+                    id="material-select"
+                    class="focus:shadow-outline block appearance-none rounded border border-gray-400 bg-white px-4 py-2 pr-8 leading-tight shadow hover:border-gray-500 focus:outline-none"
+                  >
+                    <option value="solid-wood">Laminados</option>
+                    <option value="laminate">Madeira sólida</option>
+                    <option value="veneer">Marmore</option>
+                  </select>
+                </fieldset>
+                
                 <fieldset>
                   <legend class="mb-1 text-sm font-medium">Cor</legend>
 
