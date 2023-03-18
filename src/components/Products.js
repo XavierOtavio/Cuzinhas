@@ -1,6 +1,23 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { useState } from "react";
 
 export default function Products() {
+  const [price, setPrice] = useState(3500);
+
+  const handleClick = (event) => {
+    switch (event.target.id) {
+      case "escura":
+        setPrice(3500);
+        break;
+      case "clara":
+        setPrice(3700);
+        break;
+      case "branca":
+        setPrice(3900);
+        break;
+    }
+  };
+
   return (
     <div className="pt-24">
       <section>
@@ -101,7 +118,7 @@ export default function Products() {
                   </div>
                 </div>
 
-                <p class="text-lg font-bold">3500€</p>
+                <p class="text-lg font-bold">{price}€</p>
               </div>
 
               <div class="mt-4">
@@ -128,6 +145,8 @@ export default function Products() {
                       type="number"
                       name="width"
                       id="width"
+                      min="0"
+                      defaultValue="400"
                       className="mt-1 h-9 w-32 rounded-md border border-gray-200 bg-white px-3 text-sm text-gray-700 shadow-sm"
                     />{" "}
                     cm
@@ -141,6 +160,8 @@ export default function Products() {
                     type="number"
                     name="width"
                     id="width"
+                    min="0"
+                    defaultValue="300"
                     className="mt-1 h-9 w-32 rounded-md border border-gray-200 bg-white px-3 text-sm text-gray-700 shadow-sm"
                   />{" "}
                   cm
@@ -157,7 +178,11 @@ export default function Products() {
                         class="peer sr-only"
                       />
 
-                      <span class="group inline-block rounded-full border px-3 py-1 text-xs font-medium peer-checked:bg-black peer-checked:text-white">
+                      <span
+                        class="group inline-block rounded-full border px-3 py-1 text-xs font-medium peer-checked:bg-black peer-checked:text-white"
+                        id="escura"
+                        onClick={handleClick}
+                      >
                         Escura
                       </span>
                     </label>
@@ -170,7 +195,11 @@ export default function Products() {
                         class="peer sr-only"
                       />
 
-                      <span class="group inline-block rounded-full border px-3 py-1 text-xs font-medium peer-checked:bg-black peer-checked:text-white">
+                      <span
+                        class="group inline-block rounded-full border px-3 py-1 text-xs font-medium peer-checked:bg-black peer-checked:text-white"
+                        id="clara"
+                        onClick={handleClick}
+                      >
                         Clara
                       </span>
                     </label>
@@ -183,7 +212,11 @@ export default function Products() {
                         class="peer sr-only"
                       />
 
-                      <span class="group inline-block rounded-full border px-3 py-1 text-xs font-medium peer-checked:bg-black peer-checked:text-white">
+                      <span
+                        class="group inline-block rounded-full border px-3 py-1 text-xs font-medium peer-checked:bg-black peer-checked:text-white"
+                        id="branca"
+                        onClick={handleClick}
+                      >
                         Branco
                       </span>
                     </label>
