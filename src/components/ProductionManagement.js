@@ -1,7 +1,7 @@
 import React from "react";
 import { EyeIcon, PhoneIcon, EnvelopeIcon } from "@heroicons/react/24/outline";
 import { useState } from "react";
-import OrderModal from "./OrderModal";
+import ProcessModal from "./ProcessModal";
 
 function ProductionManagement() {
   const [search, setSearch] = useState({ status: "", orderId: "" });
@@ -462,7 +462,7 @@ function ProductionManagement() {
                 </button>
               </td>
               {openModal && (
-                <OrderModal openModal={setOpenModal} modalData={modalData} />
+                <ProcessModal openModal={setOpenModal} modalData={modalData} />
               )}
               <td className="whitespace-nowrap py-3">
                 <div className="flex items-start">

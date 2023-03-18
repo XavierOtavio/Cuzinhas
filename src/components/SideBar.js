@@ -18,7 +18,7 @@ export default function SideBar() {
       <div>
         <div className="inline-flex h-16 w-16 items-center justify-center">
           <Link
-            to="/profile"
+            to="profile"
             className="group relative flex justify-center rounded"
           >
             <img

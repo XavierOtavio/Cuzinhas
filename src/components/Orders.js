@@ -1,12 +1,10 @@
 import { EyeIcon, PhoneIcon, EnvelopeIcon } from "@heroicons/react/24/outline";
 import { useState } from "react";
-import OrderModal from "./OrderModal";
+import { Link } from "react-router-dom";
 
 export default function Orders() {
   const [search, setSearch] = useState({ status: "", orderId: "" });
   const [page, setPage] = useState(1);
-  const [openModal, setOpenModal] = useState(false);
-  const [modalData, setModalData] = useState({});
 
   let orders = [
     {
@@ -17,6 +15,7 @@ export default function Orders() {
       status: "Canceled",
       phone: "912345678",
       email: "jose@cuzinhas.pt",
+      orderDate: "2023-01-10",
     },
     {
       id: "0002",
@@ -25,6 +24,7 @@ export default function Orders() {
         "https://politics.princeton.edu/sites/default/files/styles/square/public/images/AalaAbdelgadir_profile%20resized.jpg?itok=oZMvPNBe",
       status: "Refunded",
       phone: "912345678",
+      orderDate: "2022-12-10",
       email: "jose@cuzinhas.pt",
     },
     {
@@ -34,6 +34,7 @@ export default function Orders() {
         "https://media.npr.org/assets/img/2022/11/08/ap22312071681283-0d9c328f69a7c7f15320e8750d6ea447532dff66.jpg",
       status: "PendingPayment",
       phone: "912345678",
+      orderDate: "2022-10-10",
       email: "jose@cuzinhas.pt",
     },
     {
@@ -43,6 +44,7 @@ export default function Orders() {
         "https://politics.princeton.edu/sites/default/files/styles/square/public/images/Aseel%20Profile%20Pic.jpg?h=96281f56&itok=_XvylDKQ",
       status: "Assembling",
       phone: "912345678",
+      orderDate: "2023-02-20",
       email: "jose@cuzinhas.pt",
     },
     {
@@ -52,6 +54,7 @@ export default function Orders() {
         "https://politics.princeton.edu/sites/default/files/styles/square/public/images/YutianAn0919_0004.jpg?h=6bb51d0e&itok=D-1_EYgw",
       status: "Scheduling",
       phone: "912345678",
+      orderDate: "2023-01-20",
       email: "jose@cuzinhas.pt",
     },
     {
@@ -61,6 +64,7 @@ export default function Orders() {
         "https://politics.princeton.edu/sites/default/files/styles/square/public/images/p-5.jpeg?h=87dbaab7&itok=ub6jAL5Q",
       status: "Scheduled",
       phone: "912345678",
+      orderDate: "2023-01-09",
       email: "jose@cuzinhas.pt",
     },
     {
@@ -70,6 +74,7 @@ export default function Orders() {
         "https://politics.princeton.edu/sites/default/files/styles/square/public/images/Elizabeth-Bachman_092721_0003.jpg?h=102c6dce&itok=uL0Sbls1",
       status: "Canceled",
       phone: "912345678",
+      orderDate: "2023-02-24",
       email: "jose@cuzinhas.pt",
     },
     {
@@ -79,6 +84,7 @@ export default function Orders() {
         "https://politics.princeton.edu/sites/default/files/styles/square/public/images/GordonArsenoff_072721_0014-edit%20%281%29.jpg?h=39a78a6d&itok=hgDXBQsE",
       status: "Refunded",
       phone: "912345678",
+      orderDate: "2023-01-02",
       email: "jose@cuzinhas.pt",
     },
     {
@@ -88,6 +94,7 @@ export default function Orders() {
         "https://politics.princeton.edu/sites/default/files/styles/square/public/images/p-4.jpeg?h=6d5fbd74&itok=UAzUQXdO",
       status: "PendingPayment",
       phone: "912345678",
+      orderDate: "2023-02-01",
       email: "jose@cuzinhas.pt",
     },
     {
@@ -97,6 +104,7 @@ export default function Orders() {
         "https://politics.princeton.edu/sites/default/files/styles/square/public/images/Al-Shami.jpeg?h=227444a7&itok=hmE_Lctk",
       status: "Assembling",
       phone: "912345678",
+      orderDate: "2023-01-10",
       email: "jose@cuzinhas.pt",
     },
     {
@@ -106,6 +114,7 @@ export default function Orders() {
         "https://politics.princeton.edu/sites/default/files/styles/square/public/images/Alkhawaldeh_Headshot.jpg?h=6a43611b&itok=RFd3qC78",
       status: "Scheduling",
       phone: "912345678",
+      orderDate: "2023-02-24",
       email: "jose@cuzinhas.pt",
     },
     {
@@ -115,6 +124,7 @@ export default function Orders() {
         "https://politics.princeton.edu/sites/default/files/styles/square/public/images/Greg%20Amusu%20Department%20Photo%20%28002%29%202.jpeg?itok=lqtdmKJB",
       status: "Scheduled",
       phone: "912345678",
+      orderDate: "2023-01-01",
       email: "jose@cuzinhas.pt",
     },
   ];
@@ -123,31 +133,31 @@ export default function Orders() {
     switch (status) {
       case "Canceled":
         return (
-          <span class="mr-2 rounded bg-red-100 px-2.5 py-0.5 text-xs font-medium text-red-800">
+          <span className="mr-2 rounded bg-red-100 px-2.5 py-0.5 text-xs font-medium text-red-800">
             Cancelado
           </span>
         );
       case "Refunded":
         return (
-          <span class="mr-2 rounded bg-pink-100 px-2.5 py-0.5 text-xs font-medium text-pink-800">
+          <span className="mr-2 rounded bg-pink-100 px-2.5 py-0.5 text-xs font-medium text-pink-800">
             Reembolsado
           </span>
         );
       case "InProduction":
         return (
-          <span class="mr-2 rounded bg-amber-100 px-2.5 py-0.5 text-xs font-medium text-amber-800">
+          <span className="mr-2 rounded bg-amber-100 px-2.5 py-0.5 text-xs font-medium text-amber-800">
             Em produção
           </span>
         );
       case "PendingPayment":
         return (
-          <span class="mr-2 rounded bg-yellow-100 px-2.5 py-0.5 text-xs font-medium text-yellow-800">
+          <span className="mr-2 rounded bg-yellow-100 px-2.5 py-0.5 text-xs font-medium text-yellow-800">
             À espera de pagamento
           </span>
         );
       case "Assembling":
         return (
-          <span class="mr-2 rounded bg-blue-100 px-2.5 py-0.5 text-xs font-medium text-blue-800">
+          <span className="mr-2 rounded bg-blue-100 px-2.5 py-0.5 text-xs font-medium text-blue-800">
             Em instalação
           </span>
         );
@@ -159,19 +169,19 @@ export default function Orders() {
         );
       case "Scheduled":
         return (
-          <span class="mr-2 rounded bg-purple-100 px-2.5 py-0.5 text-xs font-medium text-purple-800">
+          <span className="mr-2 rounded bg-purple-100 px-2.5 py-0.5 text-xs font-medium text-purple-800">
             Agendado
           </span>
         );
       case "Done":
         return (
-          <span class="mr-2 rounded bg-green-100 px-2.5 py-0.5 text-xs font-medium text-green-800">
+          <span className="mr-2 rounded bg-green-100 px-2.5 py-0.5 text-xs font-medium text-green-800">
             Concluído
           </span>
         );
       default:
         return (
-          <span class="mr-2 rounded bg-gray-100 px-2.5 py-0.5 text-xs font-medium text-gray-800">
+          <span className="mr-2 rounded bg-gray-100 px-2.5 py-0.5 text-xs font-medium text-gray-800">
             Não definido
           </span>
         );
@@ -256,60 +266,73 @@ export default function Orders() {
               Estado
             </th>
             <th className="px-6 py-3" scope="col">
+              Data da Encomenda
+            </th>
+            <th className="px-6 py-3" scope="col">
+              Data Final
+            </th>
+            <th className="px-6 py-3" scope="col">
               Ações
             </th>
           </tr>
         </thead>
         <tbody className="bg-stone-50">
-          {sliceData(filteredOrders, page).map((order) => (
-            <tr key={order.id} className="border-b bg-stone-100">
-              <th
-                scope="row"
-                className="cursor-pointer whitespace-nowrap px-6 py-3"
-              >
-                <button
-                  className="hover:text-red-600"
-                  onClick={() => {
-                    setOpenModal(true);
-                    setModalData(order);
-                  }}
+          {sliceData(filteredOrders, page).map((order) => {
+            let finalDate = new Date(order.orderDate);
+            finalDate.setDate(
+              finalDate.getDate() + Math.floor(Math.random() * 90) + 1
+            );
+            return (
+              <tr key={order.id} className="border-b bg-stone-100">
+                <th
+                  scope="row"
+                  className="cursor-pointer whitespace-nowrap px-6 py-3"
                 >
-                  <u>{order.id}</u>
-                </button>
-              </th>
-              {openModal && (
-                <OrderModal openModal={setOpenModal} modalData={modalData} />
-              )}
-              <td className="whitespace-nowrap px-6 py-3">
-                <div className="flex items-center">
-                  <div className="h-10 w-10 flex-shrink-0">
-                    <img
-                      className="h-10 w-10 rounded-full"
-                      src={order.profilePhoto}
-                      alt=""
-                    />
+                  {order.id}
+                </th>
+                <td className="whitespace-nowrap px-6 py-3">
+                  <div className="flex items-center">
+                    <div className="h-10 w-10 flex-shrink-0">
+                      <img
+                        className="h-10 w-10 rounded-full"
+                        src={order.profilePhoto}
+                        alt=""
+                      />
+                    </div>
+                    <div className="ml-4">
+                      <div className="text-sm font-medium">{order.name}</div>
+                    </div>
                   </div>
-                  <div className="ml-4">
-                    <div className="text-sm font-medium">{order.name}</div>
+                </td>
+                <td className="whitespace-nowrap px-6 py-3">
+                  {statusBadge(order.status)}
+                </td>
+                <td className="whitespace-nowrap px-6 py-3">
+                  {new Date(order.orderDate).toLocaleDateString()}
+                </td>
+                <td className="whitespace-nowrap px-6 py-3">
+                  {finalDate > new Date() ? (
+                    <p className="font-bold">{`Prevista: ${finalDate.toLocaleDateString()}`}</p>
+                  ) : (
+                    `${finalDate.toLocaleDateString()}`
+                  )}
+                </td>
+                <td className="px-6 py-3">
+                  <div className="inline-grid grid-cols-3 gap-4">
+                    <Link to={`${order.id}`} state={{ data: order }}>
+                      <EyeIcon className="w-6 cursor-pointer text-indigo-600 hover:text-indigo-900" />
+                    </Link>
+                    <a href={`tel:${order.phone}`}>
+                      <PhoneIcon className="w-6 cursor-pointer text-indigo-600 hover:text-indigo-900" />
+                    </a>
+                    <a href={`mail:${order.email}`}>
+                      <EnvelopeIcon className="w-6 cursor-pointer text-indigo-600 hover:text-indigo-900" />
+                    </a>
                   </div>
-                </div>
-              </td>
-              <td className="whitespace-nowrap px-6 py-3">
-                {statusBadge(order.status)}
-              </td>
-              <td className="px-6 py-3">
-                <div className="inline-grid grid-cols-3 gap-4">
-                  <EyeIcon className="w-6 cursor-pointer text-indigo-600 hover:text-indigo-900" />
-                  <a href={`tel:${order.phone}`}>
-                    <PhoneIcon className="w-6 cursor-pointer text-indigo-600 hover:text-indigo-900" />
-                  </a>
-                  <a href={`mail:${order.email}`}>
-                    <EnvelopeIcon className="w-6 cursor-pointer text-indigo-600 hover:text-indigo-900" />
-                  </a>
-                </div>
-              </td>
-            </tr>
-          ))}
+                </td>
+              </tr>
+            );
+          })}
         </tbody>
 
         {calculateRange(filteredOrders).length > 1 && (

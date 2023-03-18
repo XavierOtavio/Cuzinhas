@@ -1,12 +1,6 @@
 import React from "react";
-import {
-  EyeIcon,
-  PhoneIcon,
-  EnvelopeIcon,
-  TrashIcon,
-} from "@heroicons/react/24/outline";
+import { EyeIcon, TrashIcon } from "@heroicons/react/24/outline";
 import { useState } from "react";
-import OrderModal from "./OrderModal";
 import { Link } from "react-router-dom";
 
 function ManProducts() {
@@ -146,9 +140,7 @@ function ManProducts() {
                     <u>{order.id}</u>
                   </button>
                 </th>
-                {openModal && (
-                  <OrderModal openModal={setOpenModal} modalData={modalData} />
-                )}
+
                 <td className="whitespace-nowrap px-6 py-3">
                   <div className="flex items-center">
                     <div className="h-10 w-10 flex-shrink-0">

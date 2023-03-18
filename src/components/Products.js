@@ -122,48 +122,28 @@ export default function Products() {
               <form class="mt-8">
                 <fieldset>
                   <legend class="mb-1 text-sm font-medium">Medidas</legend>
-
-                  <div class="flex flex-wrap gap-1">
-                    <label for="color_tt" class="cursor-pointer">
-                      <input
-                        type="radio"
-                        name="color"
-                        id="color_tt"
-                        class="peer sr-only"
-                      />
-
-                      <imput
-                        placeholder="Comprimento/m"
-                        class="group inline-block rounded-full border px-3 py-1 text-xs font-medium peer-checked:bg-black peer-checked:text-white"
-                      ></imput>
-                    </label>
-
-                    <label for="color_fr" class="cursor-pointer">
-                      <input
-                        type="radio"
-                        name="color"
-                        id="color_fr"
-                        class="peer sr-only"
-                      />
-
-                      <span class="group inline-block rounded-full border px-3 py-1 text-xs font-medium peer-checked:bg-black peer-checked:text-white">
-                        Clara
-                      </span>
-                    </label>
-
-                    <label for="color_cb" class="cursor-pointer">
-                      <input
-                        type="radio"
-                        name="color"
-                        id="color_cb"
-                        class="peer sr-only"
-                      />
-
-                      <span class="group inline-block rounded-full border px-3 py-1 text-xs font-medium peer-checked:bg-black peer-checked:text-white">
-                        Branco
-                      </span>
-                    </label>
-                  </div>
+                  <span class="text-sm text-gray-500">
+                    <label for="height">Comprimento: </label>
+                    <input
+                      type="number"
+                      name="width"
+                      id="width"
+                      className="mt-1 h-9 w-32 rounded-md border border-gray-200 bg-white px-3 text-sm text-gray-700 shadow-sm"
+                    />{" "}
+                    cm
+                  </span>
+                </fieldset>
+                <fieldset class="text-sm text-gray-500">
+                  <label for="height" className="">
+                    Largura:{" "}
+                  </label>
+                  <input
+                    type="number"
+                    name="width"
+                    id="width"
+                    className="mt-1 h-9 w-32 rounded-md border border-gray-200 bg-white px-3 text-sm text-gray-700 shadow-sm"
+                  />{" "}
+                  cm
                 </fieldset>
                 <fieldset>
                   <legend class="mb-1 text-sm font-medium">Cor</legend>
@@ -272,24 +252,24 @@ export default function Products() {
 
                 <div class="mt-8 flex gap-4">
                   <div>
-                    <label for="quantity" class="sr-only">
-                      Quantidade
+                    <label for="quantity" class="">
+                      Quantidade{" "}
                     </label>
-
                     <input
                       type="number"
-                      id="quantity"
+                      name="width"
+                      id="width"
                       min="1"
-                      value="1"
-                      class="w-12 rounded border-gray-200 py-3 text-center text-xs [-moz-appearance:_textfield] [&::-webkit-inner-spin-button]:m-0 [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:m-0 [&::-webkit-outer-spin-button]:appearance-none"
+                      defaultValue="1"
+                      className="mt-1 h-9 w-16 rounded-md border border-gray-200 bg-white px-3 text-sm text-gray-700 shadow-sm"
                     />
                   </div>
 
                   <button
                     type="submit"
-                    class="block rounded bg-green-600 px-5 py-3 text-xs font-medium text-white hover:bg-green-500"
+                    class="block rounded bg-red-600 px-5 py-3 text-xs font-medium text-white hover:bg-green-500"
                   >
-                    Add to Cart
+                    Encomendar
                   </button>
                 </div>
               </form>

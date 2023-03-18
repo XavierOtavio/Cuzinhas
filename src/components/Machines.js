@@ -1,8 +1,5 @@
 import React from "react";
-import { EyeIcon, PhoneIcon, EnvelopeIcon } from "@heroicons/react/24/outline";
 import { useState } from "react";
-import OrderModal from "./OrderModal";
-import { Link } from "react-router-dom";
 
 function Machines() {
   const [search, setSearch] = useState({ status: "", orderId: "" });
