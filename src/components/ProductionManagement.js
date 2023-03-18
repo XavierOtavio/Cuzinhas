@@ -22,6 +22,8 @@ function ProductionManagement() {
       startDate: "----",
       prevMsg: "",
       endDate: "(duração: 1h)",
+      material: "50kg Madeira",
+      custoProcesso: "70,00€",
     },
     {
       id: "0002",
@@ -35,6 +37,8 @@ function ProductionManagement() {
       startDate: "----",
       prevMsg: "",
       endDate: "(duração: 1h)",
+      material: "100kg Mármore",
+      custoProcesso: "200,00€",
     },
     {
       id: "0003",
@@ -48,6 +52,8 @@ function ProductionManagement() {
       startDate: "2023-3-01 12:00:00",
       prevMsg: "(Previsão)",
       endDate: "2023-3-01 13:30:00",
+      material: "2x fita de lixa",
+      custoProcesso: "10,00€",
     },
     {
       id: "0004",
@@ -61,6 +67,8 @@ function ProductionManagement() {
       startDate: "2023-01-01 09:00:00",
       prevMsg: "",
       endDate: "2023-01-01 10:30:00",
+      material: "2L cola",
+      custoProcesso: "20,00€",
     },
     {
       id: "0005",
@@ -74,6 +82,8 @@ function ProductionManagement() {
       startDate: "2023-03-03 09:00:00",
       prevMsg: "(Previsão)",
       endDate: "2023-03-03 09:00:00",
+      material: "----",
+      custoProcesso: "25,00€",
     },
     {
       id: "0006",
@@ -87,6 +97,8 @@ function ProductionManagement() {
       startDate: "----",
       prevMsg: "",
       endDate: "(duração: 1h)",
+      material: "67kg Madeira",
+      custoProcesso: "90,00€",
     },
     {
       id: "0007",
@@ -100,6 +112,8 @@ function ProductionManagement() {
       startDate: "2023-01-01 09:00:00",
       prevMsg: "",
       endDate: "2023-01-01 10:00:00",
+      material: "55kg Madeira",
+      custoProcesso: "80,00€",
     },
     {
       id: "0008",
@@ -113,19 +127,23 @@ function ProductionManagement() {
       startDate: "2023-01-01 10:00:00",
       prevMsg: "",
       endDate: "2023-01-01 10:30:00",
+      material: "----",
+      custoProcesso: "25,00€",
     },
     {
       id: "0009",
       encomenda: "0009",
-      name: "Colagem",
+      name: "Agendar Instalação",
       profilePhoto:
         "https://politics.princeton.edu/sites/default/files/styles/square/public/images/p-4.jpeg?h=6d5fbd74&itok=UAzUQXdO",
-      status: "em progresso",
+      status: "pendente",
       phone: "912345678",
       email: "jose@cuzinhas.pt",
-      startDate: "2023-03-03 09:00:00",
-      prevMsg: "(Previsão)",
-      endDate: "2023-03-03 10:00:00",
+      startDate: "----",
+      prevMsg: "",
+      endDate: "(duração: 4h)",
+      material: "5L Combusitível",
+      custoProcesso: "100,00€",
     },
     {
       id: "0010",
@@ -139,6 +157,8 @@ function ProductionManagement() {
       startDate: "2023-03-03 10:00:00",
       prevMsg: "(Previsão)",
       endDate: "2023-03-03 11:00:00",
+      material: "2L cola",
+      custoProcesso: "20,00€",
     },
     {
       id: "0011",
@@ -152,6 +172,8 @@ function ProductionManagement() {
       startDate: "2023-02-03 11:00:00",
       prevMsg: "",
       endDate: "2023-02-03 12:00:00",
+      material: "2x fita de lixa",
+      custoProcesso: "5,00€",
     },
     {
       id: "0012",
@@ -165,6 +187,8 @@ function ProductionManagement() {
       startDate: "2023-02-03 12:00:00",
       prevMsg: "",
       endDate: "2023-02-03 13:00:00",
+      material: "2x fita de lixa",
+      custoProcesso: "5,00€",
     },
   ];
 
@@ -240,6 +264,15 @@ function ProductionManagement() {
                 <option value="4">003-SCM Group Si400EP</option>
               </select>
             );
+          case "Agendar Instalação":
+            return (
+              <select className="pr-24">
+                <option value="0">--</option>
+                <option value="1">Veículo 1</option>
+                <option value="2">Veículo 2</option>
+                <option value="3">Veículo 3</option>
+              </select>
+            );
         }
       case "em progresso":
         switch (order.name) {
@@ -256,7 +289,6 @@ function ProductionManagement() {
             return <option value="1">006-Heesemann MFA 10</option>;
           case "Prensagem":
             return <option value="1">010-Italpresse XL/8</option>;
-
           case "Colagem":
             return <option value="1">004-Homag Optimat KL 78</option>;
         }
@@ -284,6 +316,15 @@ function ProductionManagement() {
                 <option value="2">Rita Silva</option>
                 <option value="3">Luís Abraão</option>
                 <option value="4">João Gomes</option>
+              </select>
+            );
+          case "Agendar Instalação":
+            return (
+              <select className="pr-6">
+                <option value="0">--</option>
+                <option value="1">António Ramalho</option>
+                <option value="2">Dimitri Caria</option>
+                <option value="3">João Gomes</option>
               </select>
             );
         }
@@ -321,11 +362,25 @@ function ProductionManagement() {
   const actionButton = (order) => {
     switch (order.status) {
       case "pendente":
-        return (
-          <button class=" flex justify-center border border-red-600 bg-red-600 py-2 px-10 text-center text-xs font-medium text-white hover:border-red-700 hover:bg-red-700">
-            Iniciar
-          </button>
-        );
+        if (
+          order.name === "Corte" ||
+          order.name === "Lixar" ||
+          order.name === "Prensagem" ||
+          order.name === "Colagem"
+        ) {
+          return (
+            <button class=" flex justify-center border border-red-600 bg-red-600 py-2 px-10 text-center text-xs font-medium text-white hover:border-red-700 hover:bg-red-700">
+              Iniciar
+            </button>
+          );
+        }
+        if (order.name === "Agendar Instalação") {
+          return (
+            <button class=" flex justify-center border border-red-600 bg-red-600 py-2 px-10 text-center text-xs font-medium text-white hover:border-red-700 hover:bg-red-700">
+              Contactar Cliente
+            </button>
+          );
+        }
       case "em progresso":
         return (
           <button class=" flex justify-center border border-red-600 bg-stone-50 py-2 px-10 text-center text-xs font-medium text-red-600 hover:border-red-700 hover:bg-stone-100 hover:text-red-700">
@@ -424,7 +479,7 @@ function ProductionManagement() {
               Estado
             </th>
             <th className=" py-3" scope="col">
-              Máquina
+              Máquina/Veículo
             </th>
             <th className="px-6 py-3" scope="col">
               Funcionário
@@ -448,9 +503,6 @@ function ProductionManagement() {
                 scope="row"
                 className="cursor-pointer whitespace-nowrap px-3 py-3"
               >
-                {order.id}
-              </th>
-              <td className="whitespace-nowrap py-3">
                 <button
                   className="hover:text-red-600"
                   onClick={() => {
@@ -458,9 +510,10 @@ function ProductionManagement() {
                     setModalData(order);
                   }}
                 >
-                  <u>{order.encomenda}</u>
+                  <u>{order.id}</u>
                 </button>
-              </td>
+              </th>
+              <td className="whitespace-nowrap py-3">{order.encomenda}</td>
               {openModal && (
                 <ProcessModal openModal={setOpenModal} modalData={modalData} />
               )}

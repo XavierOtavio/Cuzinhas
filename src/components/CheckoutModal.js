@@ -1,7 +1,7 @@
 import React from "react";
 import { XMarkIcon } from "@heroicons/react/24/outline";
 
-function OrderModal(props) {
+function CheckoutModal(props) {
   const setOpenModal = props.openModal;
   const modalData = props.modalData;
 
