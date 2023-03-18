@@ -1,22 +1,47 @@
+import { he } from "date-fns/locale";
 import React, { useEffect } from "react";
 import { useState } from "react";
 
 export default function Products() {
-  const [price, setPrice] = useState(3500);
+  const [price, setPrice] = useState(3600);
+  var width;
+  var height;
+  var quantity;
 
   const handleClick = (event) => {
     switch (event.target.id) {
       case "escura":
-        setPrice(3500);
+        setPrice(width * height * 0.03);
         break;
       case "clara":
-        setPrice(3700);
+        setPrice(width * height * 0.03 + 150);
         break;
       case "branca":
-        setPrice(3900);
+        setPrice(width * height * 0.03 + 300);
         break;
     }
   };
+
+  const handleChange = (event) => {
+    switch (event.target.id) {
+      case "width":
+        setPrice(event.target.value * height * 0.03);
+        break;
+      case "height":
+        setPrice(event.target.value * width * 0.03);
+        break;
+      case "quantity":
+        setPrice(event.target.value * width * height * 0.03);
+        break;
+      default:
+        setPrice(price);
+    }
+  };
+
+  useEffect(() => {
+    width = document.getElementById("width").value;
+    height = document.getElementById("height").value;
+  }, [handleChange]);
 
   return (
     <div className="pt-24">
@@ -146,8 +171,10 @@ export default function Products() {
                       name="width"
                       id="width"
                       min="0"
+                      value={width}
                       defaultValue="400"
                       className="mt-1 h-9 w-32 rounded-md border border-gray-200 bg-white px-3 text-sm text-gray-700 shadow-sm"
+                      onChange={handleChange}
                     />{" "}
                     cm
                   </span>
@@ -158,11 +185,13 @@ export default function Products() {
                   </label>
                   <input
                     type="number"
-                    name="width"
-                    id="width"
+                    name="height"
+                    id="height"
                     min="0"
+                    value={height}
                     defaultValue="300"
                     className="mt-1 h-9 w-32 rounded-md border border-gray-200 bg-white px-3 text-sm text-gray-700 shadow-sm"
+                    onChange={handleChange}
                   />{" "}
                   cm
                 </fieldset>
@@ -292,10 +321,12 @@ export default function Products() {
                     <input
                       type="number"
                       name="width"
-                      id="width"
+                      id="quantity"
                       min="1"
+                      value={quantity}
                       defaultValue="1"
                       className="mt-1 h-9 w-16 rounded-md border border-gray-200 bg-white px-3 text-sm text-gray-700 shadow-sm"
+                      onChange={handleChange}
                     />
                   </div>
 
