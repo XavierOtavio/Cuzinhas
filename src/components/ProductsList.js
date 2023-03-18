@@ -373,7 +373,7 @@ export default function ProductsList() {
                       <p class="mt-2">
                         <span class="sr-only"> Regular Price </span>
 
-                        <span class="tracking-wider text-gray-900">3500€ </span>
+                        <span class="tracking-wider text-gray-900"></span>
                       </p>
                     </div>
                   </div>
@@ -396,7 +396,7 @@ export default function ProductsList() {
                     <p class="mt-2">
                       <span class="sr-only"> Regular Price </span>
 
-                      <span class="tracking-wider text-gray-900"> 250€ </span>
+                      <span class="tracking-wider text-gray-900"> </span>
                     </p>
                   </div>
                 </a>
@@ -418,7 +418,7 @@ export default function ProductsList() {
                     <p class="mt-2">
                       <span class="sr-only"> Regular Price </span>
 
-                      <span class="tracking-wider text-gray-900"> 350€ </span>
+                      <span class="tracking-wider text-gray-900"></span>
                     </p>
                   </div>
                 </a>
