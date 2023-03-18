@@ -1,12 +1,11 @@
-import { he } from "date-fns/locale";
 import React, { useEffect } from "react";
 import { useState } from "react";
 
 export default function Products() {
   const [price, setPrice] = useState(3600);
-  var width;
-  var height;
-  var quantity;
+  let width;
+  let height;
+  let quantity;
 
   const handleClick = (event) => {
     switch (event.target.id) {
@@ -19,6 +18,8 @@ export default function Products() {
       case "branca":
         setPrice(width * height * 0.03 + 300);
         break;
+      default:
+        console.log("error");
     }
   };
 
@@ -34,7 +35,7 @@ export default function Products() {
         setPrice(event.target.value * width * height * 0.03);
         break;
       default:
-        setPrice(price);
+        console.log("error");
     }
   };
 
