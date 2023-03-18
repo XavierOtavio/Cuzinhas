@@ -166,6 +166,7 @@ export default function Products() {
                   />{" "}
                   cm
                 </fieldset>
+                
                 <fieldset>
                   <legend class="mb-1 text-sm font-medium">Cor</legend>
 
