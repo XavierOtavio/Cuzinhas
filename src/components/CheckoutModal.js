@@ -5,96 +5,16 @@ function CheckoutModal(props) {
   const setOpenModal = props.openModal;
   const modalData = props.modalData;
 
-  const progressBar = (data) => {
-    switch (data.name) {
-      case "Corte":
-        return (
-          <>
-            <div class="col-span-12 mb-1 flex justify-between">
-              <span class="text-sm font-medium ">Corte</span>
-              <span class="text-sm font-medium">Lixar</span>
-              <span class="text-sm font-medium">Colagem</span>
-              <span class="text-sm font-medium">Prensagem</span>
-              <span class="text-sm font-medium">Instalação</span>
-            </div>
-            <div class="col-span-12 h-2.5 rounded-full bg-gray-200 dark:bg-gray-700">
-              <div class="h-2.5 w-12 rounded-full bg-blue-600"></div>
-            </div>
-          </>
-        );
-      case "Lixar":
-        return (
-          <>
-            <div class="col-span-12 mb-1 flex justify-between">
-              <span class="text-sm font-medium ">Corte</span>
-              <span class="text-sm font-medium">Lixar</span>
-              <span class="text-sm font-medium">Colagem</span>
-              <span class="text-sm font-medium">Prensagem</span>
-              <span class="text-sm font-medium">Instalação</span>
-            </div>
-            <div class="col-span-12 h-2.5 rounded-full bg-gray-200 dark:bg-gray-700">
-              <div class="h-2.5 w-56 rounded-full bg-blue-600"></div>
-            </div>
-          </>
-        );
-      case "Colagem":
-        return (
-          <>
-            <div class="col-span-12 mb-1 flex justify-between">
-              <span class="text-sm font-medium ">Corte</span>
-              <span class="text-sm font-medium">Lixar</span>
-              <span class="text-sm font-medium">Colagem</span>
-              <span class="text-sm font-medium">Prensagem</span>
-              <span class="text-sm font-medium">Instalação</span>
-            </div>
-            <div class="col-span-12 h-2.5 rounded-full bg-gray-200 dark:bg-gray-700">
-              <div class="h-2.5 w-3/6 rounded-full bg-blue-600"></div>
-            </div>
-          </>
-        );
-      case "Prensagem":
-        return (
-          <>
-            <div class="col-span-12 mb-1 flex justify-between">
-              <span class="text-sm font-medium ">Corte</span>
-              <span class="text-sm font-medium">Lixar</span>
-              <span class="text-sm font-medium">Colagem</span>
-              <span class="text-sm font-medium">Prensagem</span>
-              <span class="text-sm font-medium">Instalação</span>
-            </div>
-            <div class="col-span-12 h-2.5 rounded-full bg-gray-200 dark:bg-gray-700">
-              <div class="h-2.5 w-9/12 rounded-full bg-blue-600"></div>
-            </div>
-          </>
-        );
-      case "Agendar Instalação":
-        return (
-          <>
-            <div class="col-span-12 mb-1 flex justify-between">
-              <span class="text-sm font-medium ">Corte</span>
-              <span class="text-sm font-medium">Lixar</span>
-              <span class="text-sm font-medium">Colagem</span>
-              <span class="text-sm font-medium">Prensagem</span>
-              <span class="text-sm font-medium">Instalação</span>
-            </div>
-            <div class="col-span-12 h-2.5 rounded-full bg-gray-200 dark:bg-gray-700">
-              <div class="h-2.5 w-full rounded-full bg-blue-600"></div>
-            </div>
-          </>
-        );
-    }
-  };
-
   return (
     <div>
-      <div class="fixed z-50 flex h-[calc(100%-1rem)] w-full items-center justify-center overflow-y-auto overflow-x-hidden bg-stone-50/20 p-4 md:inset-0 md:h-full">
+      <div class="fixed z-50 flex h-[calc(100%-1rem)] w-full items-center justify-center overflow-y-auto overflow-x-hidden bg-stone-50/60 p-4 md:inset-0 md:h-full">
         <div class="h-full w-full max-w-4xl shadow-lg md:h-auto">
           {/* <!-- Modal content --> */}
           <div class="relative rounded-lg bg-white shadow">
             {/* <!-- Modal header --> */}
             <div class="flex  rounded-t border-b p-4 ">
               <h3 class="text-xl font-semibold text-gray-900">
-                Processo: {modalData.id} - {modalData.name}
+                Cozinha Modelo Personalizavel: {modalData}€
               </h3>{" "}
               <button
                 type="button"
@@ -106,33 +26,163 @@ function CheckoutModal(props) {
             </div>
             {/* <!-- Modal body --> */}
             <div class="space-y-6 p-6">
-              <form className="grid grid-cols-12  gap-4">
-                <div className="col-span-4 mb-12 mt-10 ml-10">
-                  <label className="block text-lg font-medium text-gray-700">
-                    Encomenda:
+              <form class="grid grid-cols-6 gap-4">
+                <div class="col-span-3">
+                  <label
+                    for="FirstName"
+                    class="block text-xs font-medium text-gray-700"
+                  >
+                    Primeiro Nome
                   </label>
-                  <h3 className="text-3xl text-gray-900">
-                    {modalData.encomenda}
-                  </h3>
-                </div>
-                <div className="col-span-4 mb-12 mt-10 ">
-                  <label className="block text-lg font-medium text-gray-700">
-                    Material:
-                  </label>
-                  <h3 className="text-3xl text-gray-900">
-                    {modalData.material}
-                  </h3>
-                </div>
-                <div className="col-span-4 mb-12 mt-10 ml-10">
-                  <label className="block text-lg font-medium text-gray-700">
-                    Custo do Processo:
-                  </label>
-                  <h3 className=" text-3xl text-gray-900">
-                    {modalData.custoProcesso}
-                  </h3>
+
+                  <input
+                    type="text"
+                    id="FirstName"
+                    class="mt-1 h-12 w-full rounded-md border border-gray-200 bg-white pl-3 text-sm text-gray-700 shadow-sm"
+                  />
                 </div>
 
-                <div className="col-span-12">{progressBar(modalData)}</div>
+                <div class="col-span-3">
+                  <label
+                    for="LastName"
+                    class="block text-xs font-medium text-gray-700"
+                  >
+                    Último Nome
+                  </label>
+
+                  <input
+                    type="text"
+                    id="LastName"
+                    class="mt-1 h-12 w-full rounded-md border border-gray-200 bg-white pl-3 text-sm text-gray-700 shadow-sm"
+                  />
+                </div>
+
+                <div class="col-span-3">
+                  <label
+                    for="Email"
+                    class="block text-xs font-medium text-gray-700"
+                  >
+                    Email
+                  </label>
+
+                  <input
+                    type="email"
+                    id="Email"
+                    class="mt-1 h-12 w-full rounded-md border border-gray-200 bg-white pl-3 text-sm text-gray-700 shadow-sm"
+                  />
+                </div>
+
+                <div class="col-span-3">
+                  <label
+                    for="Phone"
+                    class="block text-xs font-medium text-gray-700"
+                  >
+                    Telemóvel
+                  </label>
+
+                  <input
+                    type="tel"
+                    id="Phone"
+                    class="mt-1 h-12 w-full rounded-md border border-gray-200 bg-white pl-3 text-sm text-gray-700 shadow-sm"
+                  />
+                </div>
+
+                <fieldset class="col-span-6">
+                  <legend class="block text-sm font-medium text-gray-700">
+                    Detalhes do Cartão
+                  </legend>
+
+                  <div class="mt-1 -space-y-px rounded-md bg-white shadow-sm">
+                    <div>
+                      <label for="CardNumber" class="sr-only">
+                        {" "}
+                        Número do Cartão{" "}
+                      </label>
+
+                      <input
+                        type="text"
+                        id="CardNumber"
+                        placeholder="Número do Cartão"
+                        class="mt-1 h-12 w-full rounded-md border border-gray-200 bg-white pl-3 text-sm text-gray-700 shadow-sm"
+                      />
+                    </div>
+
+                    <div class="flex -space-x-px">
+                      <div class="flex-1">
+                        <label for="CardExpiry" class="sr-only">
+                          {" "}
+                          Card Expiry{" "}
+                        </label>
+
+                        <input
+                          type="text"
+                          id="CardExpiry"
+                          placeholder="Data de Validade"
+                          class="mt-1 h-12 w-full rounded-md border border-gray-200 bg-white pl-3 text-sm text-gray-700 shadow-sm"
+                        />
+                      </div>
+
+                      <div class="flex-1">
+                        <label for="CardCVC" class="sr-only">
+                          {" "}
+                          Card CVC{" "}
+                        </label>
+
+                        <input
+                          type="text"
+                          id="CardCVC"
+                          placeholder="CVC"
+                          class="mt-1 h-12 w-full rounded-md border border-gray-200 bg-white pl-3 text-sm text-gray-700 shadow-sm"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </fieldset>
+
+                <fieldset class="col-span-6">
+                  <legend class="block text-sm font-medium text-gray-700">
+                    Endereço de Entrega
+                  </legend>
+
+                  <div class="mt-1 -space-y-px rounded-md bg-white shadow-sm">
+                    <div>
+                      <label for="Country" class="sr-only">
+                        País
+                      </label>
+
+                      <select
+                        id="Country"
+                        class="mt-1 h-12 w-full rounded-md border border-gray-200 bg-white pl-3 text-sm text-gray-700 shadow-sm"
+                      >
+                        <option>Portugal</option>
+                        <option>Wales</option>
+                        <option>Scotland</option>
+                        <option>France</option>
+                        <option>Belgium</option>
+                        <option>Japan</option>
+                      </select>
+                    </div>
+
+                    <div>
+                      <label class="sr-only" for="PostalCode">
+                        {" "}
+                        Código Postal{" "}
+                      </label>
+
+                      <input
+                        type="text"
+                        id="Código Postal"
+                        placeholder="Código Postal"
+                        class="mt-1 h-12 w-full rounded-md border border-gray-200 bg-white pl-3 text-sm text-gray-700 shadow-sm"
+                      />
+                    </div>
+                  </div>
+                  <legend class="mt-5 block  text-xs text-gray-600">
+                    (Tempo previsto de produção: 2 semanas. Após a produção da
+                    encomenda, iremos contactá-lo para agendar a entrega e
+                    instalação)
+                  </legend>
+                </fieldset>
               </form>
             </div>
             {/* <!-- Modal footer --> */}
@@ -143,7 +193,14 @@ function CheckoutModal(props) {
                 class=" ml-2 border border-red-600 bg-red-600 px-10 py-3 font-medium text-white hover:border-red-700 hover:bg-red-700"
                 onClick={() => setOpenModal(false)}
               >
-                OK
+                Encomendar
+              </button>
+              <button
+                onClick={() => setOpenModal(false)}
+                type="button"
+                class=" ml-2 border border-gray-300 bg-white px-10 py-3 font-medium text-gray-700 hover:border-gray-400 hover:bg-gray-50"
+              >
+                Cancelar
               </button>
             </div>
           </div>
@@ -153,4 +210,4 @@ function CheckoutModal(props) {
   );
 }
 
-export default OrderModal;
+export default CheckoutModal;

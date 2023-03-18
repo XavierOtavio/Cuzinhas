@@ -1,7 +1,11 @@
 import React, { useEffect } from "react";
 import { useState } from "react";
+import { Link } from "react-router-dom";
+import CheckoutModal from "./CheckoutModal";
 
 export default function Products() {
+  const [openModal, setOpenModal] = useState(false);
+  const [modalData, setModalData] = useState({});
   const [price, setPrice] = useState(3600);
   let width;
   let height;
@@ -226,7 +230,7 @@ export default function Products() {
                     <option value="veneer">Marmore</option>
                   </select>
                 </fieldset>
-                
+
                 <fieldset>
                   <legend class="mb-1 text-sm font-medium">Cor</legend>
 
@@ -362,11 +366,21 @@ export default function Products() {
                   </div>
 
                   <button
-                    type="submit"
-                    class="block rounded bg-red-600 px-5 py-3 text-xs font-medium text-white hover:bg-green-500"
+                    type="button"
+                    class="block rounded bg-red-600 px-5 py-3 text-xs font-medium text-white hover:bg-red-700"
+                    onClick={() => {
+                      setOpenModal(true);
+                      setModalData(price);
+                    }}
                   >
                     Encomendar
                   </button>
+                  {openModal && (
+                    <CheckoutModal
+                      openModal={setOpenModal}
+                      modalData={modalData}
+                    />
+                  )}
                 </div>
               </form>
             </div>

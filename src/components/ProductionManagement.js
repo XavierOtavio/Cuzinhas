@@ -133,7 +133,7 @@ function ProductionManagement() {
     {
       id: "0009",
       encomenda: "0009",
-      name: "Agendar Instalação",
+      name: "Instalação",
       profilePhoto:
         "https://politics.princeton.edu/sites/default/files/styles/square/public/images/p-4.jpeg?h=6d5fbd74&itok=UAzUQXdO",
       status: "pendente",
@@ -264,7 +264,7 @@ function ProductionManagement() {
                 <option value="4">003-SCM Group Si400EP</option>
               </select>
             );
-          case "Agendar Instalação":
+          case "Instalação":
             return (
               <select className="pr-24">
                 <option value="0">--</option>
@@ -318,7 +318,7 @@ function ProductionManagement() {
                 <option value="4">João Gomes</option>
               </select>
             );
-          case "Agendar Instalação":
+          case "Instalação":
             return (
               <select className="pr-6">
                 <option value="0">--</option>
@@ -374,7 +374,7 @@ function ProductionManagement() {
             </button>
           );
         }
-        if (order.name === "Agendar Instalação") {
+        if (order.name === "Instalação") {
           return (
             <button class=" flex justify-center border border-red-600 bg-red-600 py-2 px-10 text-center text-xs font-medium text-white hover:border-red-700 hover:bg-red-700">
               Contactar Cliente
