@@ -13,7 +13,7 @@ export default function Orders() {
       user: "estacionâncio",
       profilePhoto:
         "https://fd230791b4.cbaul-cdnwnd.com/6573da65277e34d2c8f10c32c9f32cbf/200000001-4c1aa4d753/1246700716628_f.jpg",
-      status: "Canceled",
+      status: "InProduction",
       phone: "912345678",
       email: "jose@cuzinhas.pt",
       address: "Rua do Cuzinho, 69",
@@ -308,12 +308,7 @@ export default function Orders() {
             );
             return (
               <tr key={order.id} className="border-b bg-stone-100">
-                <th
-                  scope="row"
-                  className="cursor-pointer whitespace-nowrap px-6 py-3"
-                >
-                  {order.id}
-                </th>
+                <td className="whitespace-nowrap px-6 py-3">{order.id}</td>
                 <td className="whitespace-nowrap px-6 py-3">
                   <div className="flex items-center">
                     <div className="h-10 w-10 flex-shrink-0">

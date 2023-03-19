@@ -1,13 +1,21 @@
+import { useState, useEffect } from "react";
 import { ArrowLeftCircleIcon } from "@heroicons/react/24/outline";
 import { PhoneIcon, EnvelopeIcon, HomeIcon } from "@heroicons/react/24/solid";
 import { useLocation, useNavigate } from "react-router-dom";
 
 export default function OrderDetail() {
+  const [history, setHistory] = useState([]);
   const navigate = useNavigate();
   const location = useLocation();
   const order = location.state?.data;
 
-  console.log(location, " useLocation Hook");
+  useEffect(() => {
+    setHistory(statusHistory(order));
+  }, []);
+
+  useEffect(() => {
+    console.log(history);
+  }, [history]);
 
   const showProducts = () => {
     const products = [
@@ -28,9 +36,97 @@ export default function OrderDetail() {
       </p>
     );
   };
+  const statusBadge = (status) => {
+    switch (status) {
+      case "Canceled":
+        return (
+          <span className="mr-2 rounded bg-red-100 px-2.5 py-0.5 text-xs font-medium text-red-800">
+            Cancelado
+          </span>
+        );
+      case "Refunded":
+        return (
+          <span className="mr-2 rounded bg-pink-100 px-2.5 py-0.5 text-xs font-medium text-pink-800">
+            Reembolsado
+          </span>
+        );
+      case "InProduction":
+        return (
+          <span className="mr-2 rounded bg-amber-100 px-2.5 py-0.5 text-xs font-medium text-amber-800">
+            Em produção
+          </span>
+        );
+      case "PendingPayment":
+        return (
+          <span className="mr-2 rounded bg-yellow-100 px-2.5 py-0.5 text-xs font-medium text-yellow-800">
+            À espera de pagamento
+          </span>
+        );
+      case "Assembling":
+        return (
+          <span className="mr-2 rounded bg-blue-100 px-2.5 py-0.5 text-xs font-medium text-blue-800">
+            Em instalação
+          </span>
+        );
+      case "Scheduling":
+        return (
+          <span className="mr-2 rounded bg-indigo-100 px-2.5 py-0.5 text-xs font-medium text-indigo-800">
+            A agendar
+          </span>
+        );
+      case "Scheduled":
+        return (
+          <span className="mr-2 rounded bg-purple-100 px-2.5 py-0.5 text-xs font-medium text-purple-800">
+            Agendado
+          </span>
+        );
+      case "Done":
+        return (
+          <span className="mr-2 rounded bg-green-100 px-2.5 py-0.5 text-xs font-medium text-green-800">
+            Concluído
+          </span>
+        );
+      case "Lixar":
+        return (
+          <span class="mr-2 rounded px-2.5 py-0.5 text-xs font-medium text-red-800 outline outline-red-100">
+            Lixar
+          </span>
+        );
+      case "Corte":
+        return (
+          <span class="mr-2 rounded px-2.5 py-0.5 text-xs font-medium text-blue-800 outline outline-blue-100">
+            Corte
+          </span>
+        );
+      case "Colagem":
+        return (
+          <span class="mr-2 rounded px-2.5 py-0.5 text-xs font-medium text-green-800 outline outline-green-800/25">
+            Colagem
+          </span>
+        );
+      case "Prensagem":
+        return (
+          <span class="mr-2 rounded bg-gray-100 px-2.5 py-0.5 text-xs font-medium text-gray-800">
+            Prensagem
+          </span>
+        );
+      default:
+        return (
+          <span className="mr-2 rounded bg-gray-100 px-2.5 py-0.5 text-xs font-medium text-gray-800">
+            Não definido
+          </span>
+        );
+    }
+  };
 
-  const statusHistory = () => {
-    let statusHistory = [];
+  const addDays = (date, days, offset) => {
+    let finalDate = new Date(date);
+    return finalDate.setDate(
+      finalDate.getDate() + Math.floor(Math.random() * days) + offset
+    );
+  };
+  const statusHistory = (order) => {
+    let aux = [];
     const inProductionStatus = ["Corte", "Lixar", "Colagem", "Prensagem"];
     const status = [
       "PendingPayment",
@@ -40,24 +136,106 @@ export default function OrderDetail() {
       "Assembling",
       "Done",
     ];
-    const canceledStatus = ["PendingPayment", "Canceled", "Refunded"];
-    if (canceledStatus.includes(order?.status)) {
-      //TODO: fill with random data till status
+    const canceledStatus = ["Canceled", "Refunded"];
+    if (canceledStatus.includes(order.status)) {
+      if (order.status === "Canceled") {
+        aux.push({
+          statusDate: new Date(
+            addDays(order.orderDate, 5, 1)
+          ).toLocaleDateString(),
+          status: "PendingPayment",
+          machine: "--",
+          operator: "--",
+          observations: ["Error", ""],
+        });
+        aux.push({
+          statusDate: new Date(
+            addDays(order.orderDate, 10, 5)
+          ).toLocaleDateString(),
+          status: "Canceled",
+          machine: "--",
+          operator: "--",
+          observations: [
+            "Done",
+            "Foi feita uma tentativa de contato sem sucesso",
+          ],
+        });
+      } else if (order.status === "Refunded") {
+        aux.push({
+          statusDate: new Date(
+            addDays(order.orderDate, 5, 1)
+          ).toLocaleDateString(),
+          status: "PendingPayment",
+          machine: "--",
+          operator: "--",
+          observations: ["Done", ""],
+        });
+        aux.push({
+          statusDate: new Date(
+            addDays(order.orderDate, 10, 5)
+          ).toLocaleDateString(),
+          status: "Canceled",
+          machine: "--",
+          operator: "--",
+          observations: [
+            "Done",
+            "Após vontade por parte do cliente, foi feita uma tentativa de contato sem sucesso",
+          ],
+        });
+        aux.push({
+          statusDate: new Date(
+            addDays(order.orderDate, 5, 15)
+          ).toLocaleDateString(),
+          status: "Refunded",
+          machine: "--",
+          operator: "--",
+          observations: ["Done", ""],
+        });
+      }
     } else if (status.includes(order?.status)) {
-      if (order?.status === "InProduction") {
-        //TODO: fill with random data till status (FOR LOOP)
-      } else if (order?.status === "Scheduling") {
-        //TODO: fill with random data till status
+      for (let i = 0; i < status.length; i++) {
+        if (status[i] === "InProduction") {
+          for (let j = 0; j < inProductionStatus.length; j++) {
+            aux.push({
+              statusDate: new Date(
+                addDays(order.orderDate, 2 * i + 5, 2 * i + 1)
+              ).toLocaleDateString(),
+              status: inProductionStatus[j],
+              machine: "00" + Math.floor(Math.random() * 8 + 1),
+              operator: "00" + Math.floor(Math.random() * 8 + 1),
+              observations:
+                order.status === "InProduction"
+                  ? j === 3
+                    ? ["InProgress", ""]
+                    : [["Done", "InProgress"][Math.round(Math.random())], ""]
+                  : ["Done", ""],
+            });
+            if (aux[aux.length - 1].observations[0] === "InProgress") break;
+          }
+        } else {
+          aux.push({
+            statusDate: new Date(
+              addDays(order.orderDate, 10 * i + 5, 10 * i + 1)
+            ).toLocaleDateString(),
+            status: status[i],
+            machine: "--",
+            operator: "--",
+            observations:
+              status[i] === order.status ? ["InProgress", ""] : ["Done", ""],
+          });
+        }
+        if (status[i] === order.status) break;
       }
     }
+    return aux;
   };
 
   return (
     <>
-      <div className="absolute left-32 right-16 top-0 bottom-32 ">
+      <div className="bototom-32 absolute left-32 right-16 top-0 ">
         <div className="inline-flex h-16 w-full items-center justify-start gap-4 align-baseline">
           <ArrowLeftCircleIcon
-            className="h-8 w-8"
+            className="h-8 w-8 cursor-pointer"
             onClick={() => navigate(-1)}
           />
           <h1 className="text-2xl font-bold">Order ID: {order?.id}</h1>
@@ -157,7 +335,46 @@ export default function OrderDetail() {
                   </th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-stone-300"></tbody>
+              <tbody className="divide-y divide-stone-300">
+                {history.map((status) => {
+                  return (
+                    <tr key={order.id} className="">
+                      <td className="whitespace-nowrap px-6 py-3">
+                        {status.statusDate}
+                      </td>
+                      <td className="whitespace-nowrap px-6 py-3">
+                        {statusBadge(status.status)}
+                      </td>
+                      <td className="whitespace-nowrap px-6 py-3">
+                        {status.machine}
+                      </td>
+                      <td className="whitespace-nowrap px-6 py-3">
+                        {status.operator}
+                      </td>
+                      <td className="flex flex-col gap-4 whitespace-nowrap px-6 py-3">
+                        {status?.observations[0] === "Done" && (
+                          <span className="h-8 w-24 rounded-2xl border border-green-500 py-1 px-2 text-center align-baseline text-xs text-green-500 ">
+                            Com Sucesso
+                          </span>
+                        )}
+                        {status?.observations[0] === "Error" && (
+                          <span className="h-8 w-24 rounded-2xl border border-red-500 py-1 px-2 text-center align-baseline text-xs text-red-500 ">
+                            Sem Sucesso
+                          </span>
+                        )}
+                        {status?.observations[0] === "InProgress" && (
+                          <span className="h-8 w-24 rounded-2xl border border-orange-500 py-1 px-2 text-center align-baseline text-xs text-orange-500 ">
+                            Em progresso
+                          </span>
+                        )}
+                        <p className=" whitespace-pre-wrap text-sm">
+                          {status?.observations[1]}
+                        </p>
+                      </td>
+                    </tr>
+                  );
+                })}
+              </tbody>
             </table>
           </div>
         </div>
